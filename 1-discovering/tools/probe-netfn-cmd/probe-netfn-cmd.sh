@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICMD="ipmitool -I lan -H 172.24.254.128 -U ADMIN -P ADMIN raw "
+ICMD="ipmitool -I lan -H 172.24.254.128 -U ADMIN -P ADMIN -t 0x2c raw "
 
 for i in `seq $[0x0] 2 $[0x3f]`; do
   for j in `seq 0 255`; do
