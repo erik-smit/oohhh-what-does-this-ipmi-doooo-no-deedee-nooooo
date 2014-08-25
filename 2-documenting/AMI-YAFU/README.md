@@ -2,6 +2,7 @@
 
 Spotted on: X7SB3-F
 
+```
 NetFN: 0x32
 ----------------------------------
 Cmd: 0x01
@@ -20,6 +21,7 @@ Response:
   Byte 25:26 flashProductId
   Byte 27:28 reserved
   Byte 29:30 noEraseBlks
+```
 
 Example:
 
