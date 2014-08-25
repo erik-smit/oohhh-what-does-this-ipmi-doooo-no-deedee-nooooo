@@ -1,5 +1,10 @@
 ````
-    -0x30   0x70    0x67    Get/Set ports & Services
+Raw: 0x30 0x70 0x67
+Param: See below
+
+Feature: Support port change and enable/disable function on both port setting web page and oem commad
+
+Cmd: 0x30   0x70    0x67    Get/Set ports & Services
 
     Request
       Data 1: 0/1 [Get/Set]
@@ -8,12 +13,12 @@
         7:HTTPS_SERVICE,8:IKVM_SERVICE,9:VM_SERVICE,10:SSH_SERVICE,11:WSMAN_SERVICE,12:SSL_REDIRECT
       Data 3-4 :  [Set]
       Data 4: port number (LSB)
-      Data 5: port number (MSB)”    ”[Get]
+      Data 5: port number (MSB)
     Response
       [Get]
         Data1: completion code
         Data2: port number (LSB)
         Data3: port number (MSB)
       [Set]
-        Data1: completion code”
+        Data1: completion code
 ````

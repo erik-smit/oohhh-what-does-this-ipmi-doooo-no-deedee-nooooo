@@ -1,3 +1,7 @@
+````
+Raw: 0x30 0x70 0x0c
+Param: See below
+
 // for ATEN
 LAN mode get: 
 Input : NetFn 0x30 
@@ -19,3 +23,4 @@ Output: Completion Code 0x00
 dedicated: 0 
 onBoard: 1 
 failover: 2 
+````

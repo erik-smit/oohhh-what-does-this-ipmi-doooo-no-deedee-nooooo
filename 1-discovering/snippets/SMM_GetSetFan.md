@@ -1,3 +1,7 @@
+````
+Raw: 0x30 0x70 0x0c
+Param: See below
+
 // for AMI
 LAN mode get:
 Input : NetFn 0x30
@@ -18,3 +22,4 @@ Param1 0x0c
 Param2 1 [write]
 Param3 [disable/enable]
 Param4 [dedicated/onBoard] -> 0/1
+````
