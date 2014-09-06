@@ -1,0 +1,88 @@
+Activate Payload - NetFn = App (0x06h), CMD = 0x48h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x48 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x48 0x01 0x01 0x00 0x00 0x00 0x00
+ 00 00 00 00 fc 00 fc 00 02 6f ff ff
+
+
+Deactivate Payload - NetFn = App (0x06h), CMD = 0x49h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x49 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x49 0x01 0x01 0x00 0x00 0x00 0x00
+
+Test steps:
+Step 1. SOL activate command
+Step 2. Deactivate Payload command
+Step 3. Check SOL will malfunction
+
+
+Suspend/Resume Payload Encryption Command - NetFn = App (0x06h), CMD = 0x55h
+
+
+Get Payload Activation Status - NetFn = App (0x06h), CMD = 0x4ah
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x4a Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x4a 0x00
+ 0f 01 00
+
+
+Get Payload Instance Info - NetFn = App (0x06h), CMD = 0x4bh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x4b Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x4b 0x01 0x01
+ 00 00 00 00 00 00 00 00 00 00 00 00
+
+
+Set User Payload Access Command - NetFn = App (0x06h), CMD = 0x4ch
+
+
+Get User Payload Access Command - NetFn = App (0x06h), CMD = 0x4dh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x4d Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x4d 0x01 0x01
+ 02 00 00 00
+
+
+Get Channel Payload Support Command - NetFn = App (0x06h), CMD = 0x4eh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x4e Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x4e 0x01
+ 03 00 3f 00 00 00 00 00
+
+
+Get Channel Payload Version Command - NetFn = App (0x06h), CMD = 0x4fh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x4f Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x4f 0x01 0x00
+ 10
+
+
+Get Channel OEM Payload Info Command - NetFn = App (0x06h), CMD = 0x50h
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

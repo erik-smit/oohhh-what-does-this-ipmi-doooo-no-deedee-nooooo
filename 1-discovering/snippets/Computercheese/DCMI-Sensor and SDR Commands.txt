@@ -1,0 +1,16 @@
+Get DCMI Sensor Info - NetFn = DCGRP (0x2ch), CMD = 0x07h, Privilege Level = Operator
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x07 0xdc Data[2:5]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x07 0xdc 0x01 0x41 0x00 0x00
+ dc 00 00 00 00
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "Data Center Manageability Interface: Spec, V1.5"
+[3] "IPMItool" http://ipmitool.sourceforge.net/
+[4] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[5] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

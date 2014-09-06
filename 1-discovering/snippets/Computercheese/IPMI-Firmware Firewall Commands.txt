@@ -1,0 +1,73 @@
+Get NetFn Support - NetFn = App (0x06h), CMD = 0x09h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x09 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 18 09 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x09 0x00
+ 02 6f 00 00 0b 00 00 00 00 00 00 00 00 00 00 00
+ 00
+
+
+Get Command Support - NetFn = App (0x06h), CMD = 0x0ah
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x0a Data[1:3]
+[IPMI tool under DOS]
+ipmitool 20 18 0a Data[1:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x0a 0x01 0x0a 0x00
+ ff ff 00 00 00 0e 00 00 00 00 00 0c 00 00 00 00
+
+
+Get Command Sub-function Support - NetFn = App (0x06h), CMD = 0xbh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x0b Data[1:4]
+[IPMI tool under DOS]
+ipmitool 20 18 0b Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x0b 0x01 0x06 0x00 0x1
+ 00 20 10 ff ff ff ff
+
+
+Get Configure Commands - NetFn = App (0x06h), CMD = 0x0ch
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x0c Data[1:3]
+[IPMI tool under DOS]
+ipmitool 20 18 0c Data[1:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x0c 0x01 0x00 0x00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+
+Get Configure Commands Sub-functions - NetFn = App (0x06h), CMD = 0x0dh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x0d Data[1:4]
+[IPMI tool under DOS]
+ipmitool 20 18 0d Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x0d 0x01 0x06 0x00 0x1
+ 00 00 00 00
+
+
+Set Command Enables - NetFn = App (0x06h), CMD = 0x60h
+Get Command Enables - NetFn = App (0x06h), CMD = 0x61h
+Set Command Sub-function Enables - NetFn = App (0x06h), CMD = 0x62h
+Get Command Sub-function Enables - NetFn = App (0x06h), CMD = 0x63h
+Get OEM NetFn IANA Support - NetFn = App (0x06h), CMD = 0x64h
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

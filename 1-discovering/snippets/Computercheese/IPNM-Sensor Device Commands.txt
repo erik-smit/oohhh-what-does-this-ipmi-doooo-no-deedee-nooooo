@@ -1,0 +1,101 @@
+Set Event Reciver - NetFn = S/E (0x04h), CMD = 0x00h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x00 Byte[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x00 0x2c 0x00
+
+
+Get Event Receiver - NetFn = S/E (0x04h), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x01
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x01
+ 2c 00
+
+
+Set Sensor Thresholds - NetFn = S/E (0x04h), CMD = 0x26h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x26 Byte[1:8]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x26 0x20 0x3f 0x6d 0x6a 0x55 0x6e 0x73 0x78
+
+
+Get Sensor Thresholds - NetFn = S/E (0x04h), CMD = 0x27h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x27 Byte[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x27 0x20
+ 3f 6d 6a 55 6e 73 78
+
+
+Set Sensor Event Enable - NetFn = S/E (0x04h), CMD = 0x28h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x28 Byte[1:(6)]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x28 0x20 0xc0 0x95 0x0a 0x95 0x0a
+
+
+Get Sensor Event Enable - NetFn = S/E (0x04h), CMD = 0x29h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x29 Byte[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x29 0x20
+ c0 00 00 00 00
+
+
+Re-arm Sensor Events - NetFn = S/E (0x04h), CMD = 0x2Ah
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x2a Byte[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x2a 0x20 0x00
+
+
+Get Sensor Event Status - NetFn = S/E (0x04h), CMD = 0x2Bh
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x2b Byte[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x2b 0x20
+ c0 00 00 00 00
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x2b 0x21
+ e0 00 00 00 00
+
+
+Get Sensor Reading - NetFn = S/E (0x04h), CMD = 0x2Dh
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x04 0x2d Byte[1]
+
+For example
+[IPMI tool in Linux]
+PCH Thermal Sensor
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x2d 0x08
+ 2b c0 00
+CPU#0 Tjmax Sensor
+$ ipmitool -b 0x06 -t 0x2c raw 0x04 0x2d 0x30
+ 67 40 c0
+
+
+[1] "Intel® Intelligent Power Node Manager 2.0" http://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/intelligent-power-node-manager-specification.pdf
+[2] "Intel® Intelligent Power Node Manager 1.5" http://www.intel.com/content/dam/doc/technical-specification/intelligent-power-node-manager-1-5-specification.pdf
+[3] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[4] "IPMItool" http://ipmitool.sourceforge.net/
+[5] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[6] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net
+
+Acknowledges the Following Trademarks:
+Intel® is a registered trademark of the Intel Corporation.

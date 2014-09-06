@@ -1,0 +1,142 @@
+Get PEF Capabilities - NetFn = Sensor/Event (0x04h), CMD = 0x10h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x10
+ipmitool pef
+ipmitool pef info
+[IPMI tool under DOS]
+ipmitool 20 10 10
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x10
+ 51 2f 28
+$ ipmitool pef info
+ 0x51 | 40 | 60 | 00000000-acb2-e102-0010-d21deab86521 | Alert,Power-off,Reset,Power-cycle,Diagnostic-interrupt
+
+
+
+Arm PEF Postpone Timer - NetFn = Sensor/Event (0x04h), CMD = 0x11h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x11 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 10 11 Data[1]
+
+Where Data[1] =
+00h: disable postpone timer
+01h - FDh: arm timer
+FEh: the PEF Postpone timer does not countdown from the value
+FFh: get present countdown value
+
+For example
+[IPMI tool in Linux]
+arm timer
+$ ipmitool raw 0x04 0x11 0xfd
+ fd
+get present countdown value
+$ ipmitool raw 0x04 0x11 0xff
+ fc
+no countdown
+$ ipmitool raw 0x04 0x11 0xfe
+ fe
+
+
+Set PEF Configuration Parameters - NetFn = Sensor/Event (0x04h), CMD = 0x12h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x12 Data[1:N]
+[IPMI tool under DOS]
+ipmitool 20 10 12 Data[1:N]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x12 0x01 0x0f
+
+
+Get PEF Configuration Parameters - NetFn = Sensor/Event (0x04h), CMD = 0x13h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x13 Data[1:3]
+ipmitool pef list
+[IPMI tool under DOS]
+ipmitool 20 10 13 Data[1:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x13 0x00 0x00 0x00
+ 11 00
+$ ipmitool pef list
+ 1 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 1
+ 2 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 2
+ 3 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 3
+ 4 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 4
+ 5 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 5
+ 6 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 6
+ 7 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 7
+ 8 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 8
+ 9 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 9
+ 10 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 10
+ 11 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 11
+ 12 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 12
+ 13 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 13
+ 14 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 14
+ 15 | active | 0x11 | Any | Any | None | OEM | Any | Alert,OEM-defined | 15
+ 16 | inactive
+ 17 | inactive
+ 18 | inactive
+ 19 | inactive
+ 20 | inactive
+ 21 | inactive
+ 22 | inactive
+ 23 | inactive
+ 24 | inactive
+ 25 | inactive
+ 26 | inactive
+ 27 | inactive
+ 28 | inactive
+ 29 | inactive
+
+
+Set Last Processed Event ID - NetFn = Sensor/Event (0x04h), CMD = 0x14h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x14 Data[1:3]
+[IPMI tool under DOS]
+ipmitool 20 10 14 Data[1:3]
+
+Where Data[1] = 
+00h: Last Software processed Record ID
+01h: Last BMC processed Record ID
+
+For example
+[IPMI tool in Linux]
+set record ID for last record processed by Software
+$ ipmitool raw 0x04 0x014 0x00 0x07 0x00
+
+
+set record ID for last record processed by BMC
+$ ipmitool raw 0x04 0x014 0x01 0x07 0x00
+
+
+
+Get Last Processed Event ID - NetFn = Sensor/Event (0x04h), CMD = 0x15h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x15
+ipmitool pef status
+[IPMI tool under DOS]
+ipmitool 20 10 15
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x15
+ 4e 63 2c 53 ff ff  07 00 09 00
+$ ipmitool pef status
+ 03/21/2014 16:05:34 | 0xffff | 0x0007 | 0x0009 | PEF | Alert,Power-off,Reset,Power-cycle,OEM-defined
+
+
+Alert Immediate - NetFn = Sensor/Event (0x04h), CMD = 0x16h
+PET Acknowledge - NetFn = Sensor/Event (0x04h), CMD = 0x17h
+
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

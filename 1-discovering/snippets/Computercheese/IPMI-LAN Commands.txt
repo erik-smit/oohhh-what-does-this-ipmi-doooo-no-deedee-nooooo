@@ -1,0 +1,236 @@
+Set LAN Configuration Parameters - NetFn = Transport (0x0ch), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool raw 0x0c 0x01 Data[1:N]
+ipmitool lan set <channel number> <command> <parameter>
+Set channel IP address
+ipmitool lan set <channel number> ipaddr <x.x.x.x>
+Set channel IP netmask
+ipmitool lan set <channel number> netmask <x.x.x.x>
+Set default gateway IP address
+ipmitool lan set <channel number> defgw ipaddr <x.x.x.x>
+Set channel MAC address
+ipmitool lan set <channel number> macaddr <x:x:x:x:x:x>
+Set IP address source
+ipmitool lan set <channel number> ipsrc <source>
+Enable or disable access to this channel
+ipmitool lan set <channel number> access <on|off>
+[IPMI tool under DOS]
+ipmitool 20 30 01 Data[1:N]
+
+For example
+**** eth0 on channel 01 ****
+[IPMI tool in Linux]
+Enable LAN channel access
+$ ipmitool lan set 0x01 access on
+
+
+Set MAC address by raw command
+$ ipmitool raw 0x0c 0x01 0x01 0xc2 0x00
+$ ipmitool raw 0x0c 0x01 0x01 0x05 0x8c 0x89 0xa5 0x15 0xaa 0xbb
+
+Set MAC address 
+$ ipmitool lan set 0x01 macaddr 8c:88:a5:15:aa:bb
+Setting LAN MAC Address to 8c:88:a5:15:aa:bb
+
+
+Set static IP address by raw command
+$ ipmitool raw 0x0c 0x01 0x01 0x00 0x01
+$ ipmitool raw 0x0c 0x01 0x01 0x04 0x01
+$ ipmitool raw 0x0c 0x01 0x01 0x03 0xc0 0xa8 0x01 0x05
+$ ipmitool raw 0x0c 0x01 0x01 0x06 0xff 0xff 0xff 0x00
+$ ipmitool raw 0x0c 0x01 0x01 0x00 0x00
+
+Set static IP address assignment
+$ ipmitool lan set 0x01 ipsrc static
+$ ipmitool lan set 0x01 ipaddr 192.168.1.5
+Setting LAN IP Address to 192.168.1.5
+$ ipmitool lan set 0x01 netmask 255.255.255.0
+Setting LAN Subnet Mask to 255.255.255.0
+
+
+Set DHCP IP address by raw command
+$ ipmitool raw 0x0c 0x01 0x01 0x03 0x00 0x00 0x00 0x00
+$ ipmitool raw 0x0c 0x01 0x01 0x04 0x02
+$ ipmitool raw 0x06 0x02
+
+Set DHCP IP address assignment
+$ ipmitool lan set 0x01 ipsrc dhcp
+
+
+
+
+[IPMI tool under DOS]
+Set MAC address
+C:\> ipmitool 20 30 01 01 c2 00
+C:\> ipmitool 20 30 01 01 05 8c 89 a5 15 aa bb
+
+Set IP address
+C:\> ipmitool 20 30 01 01 00 01
+C:\> ipmitool 20 30 01 01 04 01
+C:\> ipmitool 20 30 01 01 03 c0 a8 01 05
+C:\> ipmitool 20 30 01 01 06 ff ff ff 00
+C:\> ipmitool 20 30 01 01 00 00
+
+Set DHCP IP address assignment
+C:\> ipmitool 20 30 01 01 03 00 00 00 00
+C:\> ipmitool 20 30 01 01 04 02
+C:\> ipmitool 20 18 02
+
+**** eth1 on channel 08****
+[IPMI tool in Linux]
+Enable LAN channel access
+$ ipmitool lan set 0x08 access on
+
+
+Set MAC address by raw command
+$ ipmitool raw 0x0c 0x01 0x01 0xc2 0x01
+$ ipmitool raw 0x0c 0x01 0x08 0x05 0x8c 0x89 0xa5 0x15 0xaa 0xbc
+
+Set MAC address
+$ ipmitool lan set 0x08 macaddr 8c:88:a5:15:aa:bc
+Setting LAN MAC Address to 8c:88:a5:15:aa:bc
+
+
+Set static IP address by raw command
+$ ipmitool raw 0x0c 0x01 0x08 0x00 0x01
+$ ipmitool raw 0x0c 0x01 0x08 0x04 0x01
+$ ipmitool raw 0x0c 0x01 0x08 0x03 0xc0 0xa8 0x02 0x05
+$ ipmitool raw 0x0c 0x01 0x08 0x06 0xff 0xff 0xff 0x00
+$ ipmitool raw 0x0c 0x01 0x08 0x00 0x00
+
+Set static IP address assignment
+$ ipmitool lan set 0x08 ipsrc static
+$ ipmitool lan set 0x08 ipaddr 192.168.2.5
+Setting LAN IP Address to 192.168.2.5
+$ ipmitool lan set 0x08 netmask 255.255.255.0
+Setting LAN Subnet Mask to 255.255.255.0
+
+
+Set DHCP IP address by raw command
+$ ipmitool raw 0x0c 0x01 0x08 0x03 0x00 0x00 0x00 0x00
+$ ipmitool raw 0x0c 0x01 0x08 0x04 0x02
+$ ipmitool raw 0x06 0x02
+
+Set DHCP IP address assignment
+$ ipmitool lan set 0x08 ipsrc dhcp
+
+
+
+[IPMI tool under DOS]
+Set MAC address
+C:\> ipmitool 20 30 01 01 c2 01
+C:\> ipmitool 20 30 01 08 05 8c 89 a5 15 aa bc
+
+Set IP address
+C:\> ipmitool 20 30 01 08 00 01
+C:\> ipmitool 20 30 01 08 04 01
+C:\> ipmitool 20 30 01 08 03 c0 a8 02 05
+C:\> ipmitool 20 30 01 08 06 ff ff ff 00
+C:\> ipmitool 20 30 01 08 00 00
+
+Set DHCP IP address assignment
+C:\> ipmitool 20 30 01 08 03 00 00 00 00
+C:\> ipmitool 20 30 01 08 04 02
+C:\> ipmitool 20 18 02
+
+
+Get LAN Configuration Parameters - NetFn = Transport (0x0ch), CMD = 0x02h
+[IPMI tool in Linux]
+ipmitool raw 0x0c 0x02 Data[1:4]
+ipmitool lan print [<channel number>]
+[IPMI tool under DOS]
+ipmitool 20 30 02 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+Get MAC address
+$ ipmitool raw 0x0c 0x02 0x01 0x05 0x00 0x00
+ 11 8c 88 a5 15 aa bb
+
+Get IP address
+$ ipmitool raw 0x0c 0x02 0x01 0x03 0x00 0x00
+ 11 c0 a8 01 05
+
+Get IP address source
+$ ipmitool raw 0x0c 0x02 0x01 0x04 0x00 0x00
+  11 01
+Where:
+00h: unspecified
+01h: static address
+02h: obtained by BMC running DHCP
+03h: by BIOS or system software
+04h: by BMC running other address assignment protocol
+
+
+Get Lan Configuration Parameters
+$ ipmitool lan print
+$ ipmitool lan print 0x01
+Set in Progress         : Set Complete
+Auth Type Support       : NONE MD2 MD5 PASSWORD OEM 
+Auth Type Enable        : Callback : NONE MD2 MD5 PASSWORD OEM 
+                        : User     : NONE MD2 MD5 PASSWORD OEM 
+                        : Operator : NONE MD2 MD5 PASSWORD OEM 
+                        : Admin    : NONE MD2 MD5 PASSWORD OEM 
+                        : OEM      : 
+IP Address Source       : Static Address
+IP Address              : 192.168.1.5
+Subnet Mask             : 255.255.255.0
+MAC Address             : 8c:88:a5:15:aa:bb
+SNMP Community String   : XXX
+IP Header               : TTL=0x40 Flags=0x40 Precedence=0x00 TOS=0x10
+BMC ARP Control         : ARP Responses Enabled, Gratuitous ARP Disabled
+Gratituous ARP Intrvl   : 0.0 seconds
+Default Gateway IP      : 0.0.0.0
+Default Gateway MAC     : 00:00:00:00:00:00
+Backup Gateway IP       : 0.0.0.0
+Backup Gateway MAC      : 00:00:00:00:00:00
+802.1q VLAN ID          : Disabled
+802.1q VLAN Priority    : 0
+RMCP+ Cipher Suites     : 0,1,2,3,6,7,8,11,12
+Cipher Suite Priv Max   : caaaXXaaaXXaaXX
+                        :     X=Cipher Suite Unused
+                        :     c=CALLBACK
+                        :     u=USER
+                        :     o=OPERATOR
+                        :     a=ADMIN
+                        :     O=OEM
+
+
+[IPMI tool under DOS]
+Get MAC address
+C:\> ipmitool 20 30 02 01 05 00 00
+34 02 00 11 8c 88 a5 15 aa bb
+Get IP address
+C:\> ipmitool 20 30 02 01 03 00 00
+34 02 00 11 c0 a8 01 05
+Get IP address source
+C:\> ipmitool 20 30 02 01 04 00 00
+34 02 00 11 01
+Where:
+00h: unspecified
+01h: static address
+02h: obtained by BMC running DHCP
+03h: by BIOS or system software
+04h: by BMC running other address assignment protocol
+
+
+Suspend BMC ARPs - NetFn = Transport (0x0ch), CMD = 0x03h
+[IPMI tool in Linux]
+ipmitool raw 0x0c 0x03 Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 30 03 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0c 0x03 0x01 0x03
+ 02
+
+
+Get IP/UDP/RMCP Statistics - NetFn = Transport (0x0ch), CMD = 0x04h
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

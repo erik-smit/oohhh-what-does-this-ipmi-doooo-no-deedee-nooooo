@@ -1,0 +1,209 @@
+Get Device SDR Info - NetFn = Sensor/Event (0x04h), Cmd = 0x20h
+Get Device SDR - NetFn = Sensor/Event (0x04h), Cmd = 21h
+Reserve Device SDR Repository - NetFn = Sensor/Event (0x04h), Cmd = 22h
+
+
+Get Sensor Reading Factors - NetFn = Sensor/Event (0x04h), Cmd = 0x23h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x23 Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 10 23 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x23 0x01 0xff
+ 20 04 00 00 00 00 e0
+
+
+Set Sensor Hysteresis - NetFn = Sensor/Event (0x04h), Cmd = 24h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x24 Data[1:4]
+[IPMI tool under DOS]
+ipmitool 20 10 24 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x24 0x01 0xff 0x00 0x00
+
+
+
+Get Sensor Hysteresis - NetFn = Sensor/Event (0x04h), Cmd = 25h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x25 Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 10 25 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x25 0x01 0xff
+ 00 00
+
+
+Set Sensor Threshold - NetFn = Sensor/Event (0x04h), Cmd = 0x26h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x26 Data[1:8]
+ipmitool sensor thresh <id> <threshold> <setting>
+ipmitool sensor thresh <id> lower <lnr> <lcr> <lnc>
+ipmitool sensor thresh <id> upper <unc> <ucr> <unr>
+[IPMI tool under DOS]
+ipmitool 20 10 26 Data[1:8]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x26 0x06 0x3f 0x6d 0x6a 0x55 0x6e 0x73 0x78
+$ ipmitool sensor thresh Temp_CPU1 unr 125
+Locating sensor record 'Temp_CPU1'...
+Setting sensor "Temp_CPU1" Upper Non-Recoverable threshold to 125.000
+$ ipmitool sensor thresh Temp_CPU1 upper 70 80 90
+Locating sensor record 'Temp_CPU1'...
+Setting sensor "Temp_CPU1" Upper Non-Critical threshold to 70.000
+Setting sensor "Temp_CPU1" Upper Critical threshold to 80.000
+Setting sensor "Temp_CPU1" Upper Non-Recoverable threshold to 90.000
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 26 06 3f 6d 6a 55 6e 73 78
+
+
+Get Sensor Threshold - NetFn = Sensor/Event (0x04h), Cmd = 27h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x27 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 10 27 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x27 0x01
+ 3f 4e 46 41 57 5e 63
+
+
+Set Sensor Event Enable - NetFn = Sensor/Event (0x04h), Cmd = 28h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x28 Data[1:(6)]
+[IPMI tool under DOS]
+ipmitool 20 10 28 Data[1:(6)]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x28 0x01 0xc0 0x95 0x0a 0x95 0x0a
+
+
+
+Get Sensor Event Enable - NetFn = Sensor/Event (0x04h), Cmd = 29h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x29 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 10 29 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x29 0x01
+ c0 95 0a 95 0a
+
+
+Re-arm Sensor Events - NetFn = Sensor/Event (0x04h), Cmd = 2ah
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x2a Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 10 2a Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x2a 0x01 0x00
+
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 2a 01 00
+20 14 2A 00
+
+
+Get Sensor Event Status - NetFn = Sensor/Event (0x04h), Cmd = 2bh
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x2b Data[1]
+[IPMI tool under DOS]
+ipmitool 20 10 2b Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x2b 0x01
+ c0 00 00 00 00
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 2b 01
+20 14 2B 00 C0 00 00 00 00
+
+
+Get Sensor Reading - NetFn = Sensor/Event (0x04h), Cmd = 2dh
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x2d Data[1]
+ipmitool sensor
+ipmitool sensor list
+ipmitool sensor get <id>
+[IPMI tool under DOS]
+ipmitool 20 10 2d Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x2d 0x01
+ 54 c0 c0 00
+$ ipmitool sensor
+Temp_CPU1        | 62.000     | degrees C  | nr    | 0.000     | 2.000     | 5.000     | 30.000    | 40.000    | 50.000    
+Temp_CPU1_DIMM1  | 34.000     | degrees C  | ok    | 0.000     | 2.000     | 5.000     | 75.000    | 85.000    | 100.000   
+$ ipmitool sensor get Temp_CPU1
+Locating sensor record...
+Sensor ID              : Temp_CPU1 (0x17)
+ Entity ID             : 3.0
+ Sensor Type (Analog)  : Temperature
+ Sensor Reading        : 61 (+/- 1) degrees C
+ Status                : ok
+ Lower Non-Recoverable : 0.000
+ Lower Critical        : 2.000
+ Lower Non-Critical    : 5.000
+ Upper Non-Critical    : 75.000
+ Upper Critical        : 85.000
+ Upper Non-Recoverable : 100.000
+ Assertion Events      : 
+ Assertions Enabled    : lnc- lcr- lnr- unc+ ucr+ unr+ 
+ Deassertions Enabled  : lnc- lcr- lnr- unc+ ucr+ unr+ 
+$ ipmitool sensor get FRU_EEPROM
+Locating sensor record...
+Device ID              : FRU_EEPROM
+Entity ID              : 7.1 (System Board)
+Device Access Address  : 20h
+Logical FRU Device     : 00h
+Channel Number         : 0h
+LUN.Bus                : 0h.0h
+Device Type.Modifier   : 9h.0h (Unknown (0x900))
+OEM                    : 00h
+
+
+Set Sensor Type - NetFn = Sensor/Event (0x04h), Cmd = 2eh
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x2e Data[1:3]
+[IPMI tool under DOS]
+ipmitool 20 10 2e Data[1:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x2e 0x01 0x02 0x01
+
+
+
+Get Sensor Type - NetFn = Sensor/Event (0x04h), Cmd = 2fh
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x2f Data[1]
+[IPMI tool under DOS]
+ipmitool 20 10 2f Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x2f 0x01
+ 02 01
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 2f  01
+20 14 2F 00 02 01
+
+
+Set Sensor Reading and Event Status - NetFn = Sensor/Event (0x04h), Cmd = 30h
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

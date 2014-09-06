@@ -1,0 +1,46 @@
+Get DCMI Capability Info - NetFn = DCGRP (0x2Ch), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x2c 0x01 0xdc Byte[2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x2c 0x01 0xdc 0x05
+ dc 01 05 02 09 05 0f 1e 41 43 47 4f 5e 81
+
+
+Get Power Reading - NetFn = DCGRP (0x2Ch), CMD = 0x02h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x2c 0x02 0xdc Byte[2:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -b 0x06 -t 0x2c raw 0x2c 0x02 0xdc 0x01 0x00 0x00
+ dc 00 00 00 00 00 00 00 00 81 7e 20 53 a0 13 29
+ 00 00
+
+
+Get Power Limit - NetFn = DCGRP (0x2Ch), CMD = 0x03h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x2c 0x03 0xdc Byte[2:4]
+
+
+Set Power Limit - NetFn = DCGRP (0x2Ch), CMD = 0x04h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x2c 0x04 0xdc Byte[2:15]
+
+
+Activate/Deactivate Power Limit - NetFn = DCGRP (0x2Ch), CMD = 0x05h
+[IPMI tool in Linux]
+ipmitool -b <channel> -t <address> raw 0x2c 0x05 0xdc Byte[2:4]
+
+
+[1] "Intel® Intelligent Power Node Manager 2.0"
+http://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/intelligent-power-node-manager-specification.pdf
+[2] "Intel® Intelligent Power Node Manager 1.5" http://www.intel.com/content/dam/doc/technical-specification/intelligent-power-node-manager-1-5-specification.pdf
+[3] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[4] "IPMItool" http://ipmitool.sourceforge.net/
+[5] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[6] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net
+
+Acknowledges the Following Trademarks:
+Intel® is a registered trademark of the Intel Corporation.

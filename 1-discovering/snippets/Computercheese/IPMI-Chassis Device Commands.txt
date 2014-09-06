@@ -1,0 +1,247 @@
+Get Chassis Capabilities - NetFn = Chassis (0x00h), CMD = 0x00h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x00
+[IPMI tool under DOS]
+ipmitool 20 00 00
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x00
+ 00 20 20 20 20 20
+
+
+Get Chassis Status (M) - NetFn = Chassis (0x00h), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x01
+ipmitool chassis status
+ipmitool power status
+ipmitool chassis power status
+ipmitool chassis poh
+[IPMI tool under DOS]
+ipmitool 20 00 00
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x01
+ 41 10 40 00
+$ ipmitool chassis status
+System Power         : on
+Power Overload       : false
+Power Interlock      : inactive
+Main Power Fault     : false
+Power Control Fault  : false
+Power Restore Policy : always-on
+Last Power Event     : ac-failed 
+Chassis Intrusion    : inactive
+Front-Panel Lockout  : inactive
+Drive Fault          : false
+Cooling/Fan Fault    : false
+$ ipmitool power status
+Chassis Power is on
+$ ipmitool chassis power status
+Chassis Power is off
+Get chassis power on hours
+$ ipmitool chassis poh
+POH Counter   : 0 days, 20 hours
+
+
+Chassis Control - NetFn = Chassis (0x00h), CMD = 0x02h
+0h = power down
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x00
+ipmitool chassis power off
+ipmitool power off
+[IPMI tool under DOS]
+ipmitool 20 00 02 00
+
+1h = power up
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x01
+ipmitool chassis power on
+ipmitool power on
+[IPMI tool under DOS]
+ipmitool 20 00 02 01
+
+2h = power cycle (Optional)
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x02
+ipmitool chassis power cycle
+ipmitool power cycle
+[IPMI tool under DOS]
+ipmitool 20 00 02 02
+
+3h = hard reset
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x03
+ipmitool chassis power reset
+ipmitool power reset
+[IPMI tool under DOS]
+ipmitool 20 00 02 03
+
+4h = pulse Diagnostic Interrupt (Optional)
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x04
+ipmitool chassis power diag
+ipmitool power diag
+[IPMI tool under DOS]
+ipmitool 20 00 02 04
+
+5h = Initiate a soft-shutdown via ACPI (Optional)
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x02 0x05
+ipmitool chassis power soft
+ipmitool power soft
+[IPMI tool under DOS]
+ipmitool 20 00 02 05
+
+
+Chassis Reset - NetFn = Chassis (0x00h), CMD = 0x03h
+
+
+Chassis Identify - NetFn = Chassis (0x00h), CMD = 0x04h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x04 [Data[1:2]]
+ipmitool chassis identify
+where,
+Data[1] = 0x00: Turn off indentify
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x04
+
+$ ipmitool raw 0x00 0x04 0x00
+
+$ ipmitool chassis identify
+Chassis identify interval: default (15 seconds)
+$ ipmitool chassis identify 33
+Chassis identify interval: 33 seconds
+$ ipmitool chassis identify 00
+Chassis identify interval: off
+
+
+Set Front Panel Enables - NetFn = Chassis (0x00h), CMD = 0x0Ah
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x0a Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x0a 0x00
+
+
+Set Chassis Capabilities - NetFn = Chassis (0x00h), CMD = 0x05h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x05 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x05 0x00 0x20 0x20 0x20 0x20 0x20
+
+
+Set Power Restore Policy - NetFn = Chassis (0x00h), CMD = 0x06h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x06 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x06 0x03
+ 07
+
+
+Set Power Cycle Interval - NetFn = Chassis (0x00h), CMD = 0x0Bh
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x0b Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x0b 0x00
+
+
+Get System Restart Cause - NetFn = Chassis (0x00h), CMD = 0x07h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x07
+ipmitool chassis restart_cause
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x07
+ 01 01
+$ ipmitool chassis restart_cause
+System restart cause: chassis power control command
+
+
+
+
+Set System Boot Options - NetFn = Chassis (0x00h), CMD = 0x08h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x08 Data[1:6]
+ipmitool chassis bootdev <device>
+ipmitool chassis bootparam set bootflag <flag>
+[IPMI tool under DOS]
+ipmitool 20 00 08 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+Force boot into BIOS Setup
+$ ipmitool raw 0x00 0x08 0x05 0x80 0x18 0x00 0x00 0x00
+
+$ ipmitool chassis bootdev bios
+Set Boot Device to bios
+$ ipmitool chassis bootparam set bootflag force_bios
+Set Boot Device to force_bios
+
+Force PXE boot
+$ ipmitool raw 0x00 0x08 0x05 0x80 0x04 0x00 0x00 0x00
+$ ipmitool chassis bootdev pxe
+$ ipmitool chassis bootparam set bootflag force_pxe
+
+Force boot from default Hard-drive
+$ ipmitool raw 0x00 0x08 0x05 0x80 0x08 0x00 0x00 0x00
+$ ipmitool chassis bootdev disk
+$ ipmitool chassis bootparam set bootflag force_disk
+
+Force boot from CD/DVD
+$ ipmitool raw 0x00 0x08 0x05 0x80 0x14 0x00 0x00 0x00
+$ ipmitool chassis bootdev cdrom
+$ ipmitool chassis bootparam set bootflag force_cdrom
+
+
+Get System Boot Options - NetFn = Chassis (0x00h), CMD = 0x09h
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x09 Data[1:3]
+[IPMI tool under DOS]
+ipmitool 20 00 09 Data[1:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x09 0x05 0x00 0x00
+ 01 05 80 18 00 00 00
+Where,
+Response Data[5]
+0x00: No override
+0x04: Force PXE
+0x08: Force boot from default Hard-drive
+0x14: Force boot from default CD/DVD
+0x18: Force boot into BIOS setup
+
+
+Get POH Counter - NetFn = Chassis (0x00h), CMD = 0x0Fh
+[IPMI tool in Linux]
+ipmitool raw 0x00 0x0f
+ipmitool chassis poh
+[IPMI tool under DOS]
+ipmitool 20 00 0f
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x00 0x0f
+ 3c 03 00 00 00
+$ ipmitool chassis poh
+POH Counter  : 0 days, 3 hours
+
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

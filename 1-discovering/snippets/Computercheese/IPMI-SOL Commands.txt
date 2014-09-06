@@ -1,0 +1,81 @@
+SOL Activating - NetFn = Transport (0x0ch), CMD = 0x20h
+[IPMI tool in Linux]
+ipmitool -I lanplus -H [ip addr] -U [user] -P [PWD] sol activate
+ipmitool -I lanplus -H [ip addr] -U [user] -P [PWD] sol deactivate
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -I lanplus -H 192.168.1.5 -U user -P pwd sol activate
+[SOL Session operational. Use ~? for help]
+
+
+Set SOL Configuration Parameters - Transport(0x0ch), CMD =  21h
+[IPMI tool in Linux]
+ipmitool sol <parameter> <value> [<channel>]
+
+For example
+$ ipmitool sol set volatile-bit-rate 115.2 1
+$ ipmitool sol set non-volatile-bit-rate 115.2
+
+
+Get SOL Configuration Parameters - NetFn = Transport (0x0ch), CMD = 0x22h
+[IPMI tool in Linux]
+ipmitool raw 0x0c 0x22 Data[1:4]
+ipmitool sol info [<channel number>]
+[IPMI tool under DOS]
+ipmitool 20 30 22 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0c 0x22 0x01 0x05 0x00 0x00
+ 11 0a
+$ ipmitool sol info 0x01
+Set in progress                 : set-complete
+Enabled                         : true
+Force Encryption                : false
+Force Authentication            : false
+Privilege Level                 : USER
+Character Accumulate Level (ms) : 60
+Character Send Threshold        : 96
+Retry Count                     : 7
+Retry Interval (ms)             : 500
+Volatile Bit Rate (kbps)        : 115.2
+Non-Volatile Bit Rate (kbps)    : 115.2
+Payload Channel                 : 1 (0x01)
+Payload Port                    : 623
+
+[IPMI tool under DOS] 
+c:\> ipmitool 20 30 22 01 05 00 00
+34 22 00 11 0a
+
+
+=======================================================
+SOL operation
+
+For example
+[IPMI tool in Linux]
+$ ipmitool -I lanplus -H 192.168.1.5 -U user -P pwd sol activate
+[SOL Session operational. Use ~? for help]
+
+For Help, press {Shift + ~}, {Shift + ?}
+$~?
+        Supported escape sequences:                                             
+        ~.  - terminate connection                                              
+        ~^Z - suspend ipmitool                                                  
+        ~^X - suspend ipmitool, but don't restore tty on restart                
+        ~B  - send break                                                        
+        ~?  - help
+        ~~  - send the escape character by typing it twice                      
+        (Note that escapes are only recognized immediately after newline.)   
+
+Send break, press {Shift + ~}, {Shift + B}
+$~B [send break]
+
+Terminate connection, press {Shift + ~}, {.}
+$~. [terminated ipmitool]
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

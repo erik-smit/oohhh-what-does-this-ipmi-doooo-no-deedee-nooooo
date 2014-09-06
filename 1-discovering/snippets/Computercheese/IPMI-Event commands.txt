@@ -1,0 +1,100 @@
+Set Event Receiver - NetFn Sensor/Event (0x04h) cmd = 0x00h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x00 Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 10 00 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x00 0x20 0x00
+
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 00 20 00
+20 14 00 00
+
+
+Get Event Receiver - NetFn = Sensor/Event (0x04h), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x01
+[IPMI tool under DOS]
+ipmitool 20 10 01
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x04 0x01
+ 20 00
+[IPMI tool under DOS]
+C:\> ipmitool 20 10 01
+20 14 01 00 20 00
+
+
+Platform Event - NetFn = Sensor/Event (0x04h), CMD = 0x02h
+[IPMI tool in Linux]
+ipmitool raw 0x04 0x02 Data[1:7]
+ipmitool event <sensorid> <state> [event_dir]
+[IPMI tool under DOS]
+ipmitool 20 10 02 Data[1:8]
+
+For example
+[IPMI tool in Linux]
+Send Unknown #0x17 Event
+$ ipmitool raw 0x04 0x02 0x04 0x30 0x17 0x75 0xa0 0x04 0x07
+
+List Sensor States of VCOREA
+$ ipmitool event VCOREA
+Finding sensor VCOREA... ok
+Sensor States:
+  lnr : Lower Non-Recoverable 
+  lcr : Lower Critical
+  lnc : Lower Non-Critical
+  unc : Upper Non-Critical
+  ucr : Upper Critical
+  unr : Upper Non-Recoverable
+
+Send VCOREA Lower Non-Recoverable event
+$ ipmitool event VCOREA lnr
+Finding sensor VCOREA... ok
+   0 | Pre-Init Time-stamp   | Voltage #0x06 | Lower Non-recoverable going low 
+
+Send Generic TEST events by ipmitool event default
+$ ipmitool event 1
+Sending SAMPLE event: Temperature - Upper Critical - Going High
+   0 | Pre-Init Time-stamp   | Temperature #0x30 | Upper Critical going high
+$ ipmitool event 2
+Sending SAMPLE event: Voltage Threshold - Lower Critical - Going Low
+   0 | Pre-Init Time-stamp   | Voltage #0x60 | Lower Critical going low 
+$ ipmitool event 3
+Sending SAMPLE event: Memory - Correctable ECC
+   0 | Pre-Init Time-stamp   | Memory #0x53 | Correctable ECC | Asserted
+
+
+[IPMI tool under DOS]
+Unknown #0x17 Event
+C:\> ipmitool 20 10 02 00 04 30 17 75 a0 04 07
+20 14 02 00
+
+BIOS Event
+C:\> ipmitool 20 10 02 01 04 0c 00 00 01 00 00
+20 14 02 00
+
+SMI Handler Event
+C:\> ipmitool 20 10 02 21 04 0c 00 00 01 00 00
+20 14 02 00
+
+System Management Software Event
+C:\> ipmitool 20 10 02 41 04 0c 00 00 01 00 00
+20 14 02 00
+
+Remote Console Software Event
+C:\> ipmitool 20 10 02 81 04 0c 00 00 01 00 00
+20 14 02 00
+
+Terminal Mode Remote Console Software Event
+C:\> ipmitool 20 10 02 8F 04 0c 00 00 01 00 00
+20 14 02 00
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

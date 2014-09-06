@@ -1,0 +1,191 @@
+Get SEL Info - NetFn = Storage (0x0ah), CMD = 0x40h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x40
+ipmitool sel
+ipmitool sel info
+[IPMI tool under DOS]
+ipmitool 20 28 40
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x40
+ 51 02 00 bc 4f a5 c4 90 51 70 c4 90 51 07
+$ ipmitool sel info
+SEL Information
+Version          : 1.5 (v1.5, v2 compliant)
+Entries          : 2
+Free Space       : 20412 bytes 
+Percent Used     : 0%
+Last Add Time    : 05/13/2013 10:47:01
+Last Del Time    : 05/13/2013 10:46:08
+Overflow         : false
+Supported Cmds   : 'Partial Add' 'Reserve' 'Get Alloc Info' 
+# of Alloc Units : 1136
+Alloc Unit Size  : 18
+# Free Units     : 1134
+Largest Free Blk : 1134
+Max Record Size  : 4
+
+
+Get SEL Allocation Info - NetFn = Storage (0x0ah), CMD = 0x41h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x41
+[IPMI tool under DOS]
+ipmitool 20 28 41
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x41
+ 70 04 12 00 6e 04 6e 04 01
+
+
+Reserve SEL - NetFn = Storage (0x0ah), CMD = 0x42h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x42
+[IPMI tool under DOS]
+ipmitool 20 28 42
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x42
+ 07 00
+
+
+Get SEL Entry - NetFn = Storage (0x0ah), CMD = 0x43h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x43 Data[1:6]
+ipmitool sel elist
+ipmitool sel list
+ipmitool sel get <id num>
+ipmitool sel save <filename>
+[IPMI tool under DOS]
+ipmitool 20 28 43 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+Get First Entry of SEL
+$ ipmitool raw 0x0a 0x43 0x00 0x00 0x00 0x00 0x00 0xff
+ 02 00 01 00 c1 12 fc 5b 52 00 00 00 09 02 00 00
+ 00 00
+Get Entry 0x17 of SEL
+$ ipmitool raw 0x0a 0x43 0x00 0x00 0x17 0x00 0x00 0xff
+ 18 00 17 00 c1 2c 0e 61 52 00 00 00 09 02 00 00
+ 00 00
+Get Last Entry of SEL
+$ ipmitool raw 0x0a 0x43 0x00 0x00 0xff 0xff 0x00 0xff
+ ff ff 18 00 c1 7b 11 61 52 00 00 00 0a 02 00 00
+ 00 00
+$ ipmitool sel list
+ 1 | 04/22/2013 | 14:47:37 | System Firmware Progress | Memory initialization | Asserted
+ 2 | 04/22/2013 | 14:47:38 | System Firmware Progress | Secondary CPU Initialization | Asserted
+$ ipmitool sel get 0x01
+SEL Record ID          : 0001
+ Record Type           : 02
+ Timestamp             : 04/22/2013 14:47:37
+ Generator ID          : 0001
+ EvM Revision          : 04
+ Sensor Type           : System Firmware Progress
+ Sensor Number         : 00
+ Event Type            : Sensor-specific Discrete
+ Event Direction       : Assertion Event
+ Event Data            : c201ff
+ Description           : Memory initialization
+
+Save SEL to file
+$ ipmitool sel save selsave.txt
+
+
+Add SEL Entry - NetFn = Storage (0x0ah), CMD = 0x44h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x44 Data[1:16]
+[IPMI tool under DOS]
+ipmitool 20 28 44 Data[1:16]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x44 0x01 0x00 0x02 0xab 0xcd 0xef 0x00 0x01 0x00 0x04 0x01 0x17 0x00 0xa0 0x04 0x07
+ 01 00
+$ ipmitool sel list
+   1 | 05/13/2013 | 16:50:45 | Temperature #0x17 | 
+$ ipmitool sel get 0x01
+SEL Record ID         : 0001
+ Record Type          : 02
+ Timestamp            : 05/13/2013 16:50:45
+ Generator ID         : 0001
+ EvM Revision         : 04
+ Sensor Type          : Temperature
+ Sensor Number        : 17
+ Event Type           : Unspecified
+ Event Direction      : Assertion Event
+ Event Data           : a00407
+ Description          : 
+
+
+Clear SEL - NetFn = Storage (0x0ah), CMD = 0x47h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x47 Data[1:6]
+ipmitool sel clear
+[IPMI tool under DOS]
+ipmitool 20 28 47 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x47 0xff 0xff 0x43 0x4c 0x52 0x00
+ 01
+$ ipmitool sel clear
+Clearing SEL.  Please allow a few seconds to erase.
+
+
+Get SEL Time - NetFn = Storage (0x0ah), CMD = 0x48h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x48
+ipmitool sel time get
+[IPMI tool under DOS]
+ipmitool 20 28 48
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x48
+ 0d d1 90 51
+$ ipmitool sel time get
+05/13/2013 11:39:18
+
+
+Set SEL Time - NetFn = Storage (0x0ah), CMD = 0x49h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x49 Data[1:4]
+ipmitool sel time set "mm/dd/yyyy hh:mm:ss"
+[IPMI tool under DOS]
+ipmitool 20 28 49 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x49 0x0d 0xd1 0x90 0x51
+$ ipmitool sel time set "05/13/2013 11:39:18"
+$ ipmitool sel time set now
+
+
+Get SEL Time UTC Offset - NetFn = Storage (0x0ah), CMD = 0x5ch
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x5c
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x5c
+ ff 07
+
+
+Set SEL Time UTC Offset - NetFn = Storage (0x0ah), CMD = 0x5dh
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x5d Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x5d 0x00 0x00
+
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

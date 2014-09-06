@@ -1,0 +1,6 @@
+Set Thermal Limit (O) - NetFn = DCGRP (0x2ch), CMD = 0x0bh, Privilege Level = Operator
+
+Get Thermal Limit (O) - NetFn = DCGRP (0x2ch), CMD = 0x0ch, Privilege Level = User
+
+Get Temperature Readings - NetFn = DCGRP (0x2ch), CMD = 0x10h, Privilege Level = User
+

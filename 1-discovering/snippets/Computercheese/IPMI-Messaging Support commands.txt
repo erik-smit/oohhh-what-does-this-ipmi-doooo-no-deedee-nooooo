@@ -1,0 +1,306 @@
+Set BMC Global Enables - NetFn = App (0x06h), CMD = 0x2eh
+[IPMI tool in Linux]
+ipmitool mc setenables
+
+
+Get BMC Global Enables - NetFn = App (0x06h), CMD = 0x2fh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x2f
+ipmitool mc getenables
+[IPMI tool under DOS]
+ipmitool 20 18 2f
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x2f
+ 09
+$ ipmitool mc getenables
+Receive Message Queue Interrupt          : enabled
+Event Message Buffer Full Interrupt      : disabled
+Event Message Buffer                     : disabled
+System Event Logging                     : enabled
+OEM 0                                    : disabled
+OEM 1                                    : disabled
+OEM 2                                    : disabled
+
+
+Clear Message Flags - NetFn = App (0x06h), CMD = 0x30h
+Get Message Flags - NetFn = App (0x06h), CMD = 0x31h
+Enable Message Channel Receive - NetFn = App (0x06h), CMD = 0x32h
+Get Message (M) - NetFn = App (0x06h), CMD = 0x33h
+Send Message (M) - NetFn = App (0x06h), CMD = 0x34h
+
+
+Read Event Message Buffer - NetFn = App (0x06h), CMD = 0x35h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x35
+[IPMI tool under DOS]
+ipmitool 20 18 35
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x35
+ 80 
+
+
+Steps:
+1. Enable Event Message reception into Event Message Buffer by "Set BMC Global Enables Command"
+$ ipmitool raw 0x06 0x2e 0x04
+2. Produce a SEL log
+3. Read Event Message Buffer
+$ ipmitool raw 0x06 0x35
+ 32 4f 02 a6 b3 ff 4e 20 00 04 04 b0 01 50 00 010
+4. Disable Event Message reception into Event Message Buffer
+$ ipmitool raw 0x06 0x2e 0x04
+
+5. Read Event Message Buffer, where response 80h = data not available (queue / buffer empty)
+$ ipmitool raw 0x06 0x35
+ 80
+
+
+Get System Interface Capabilities (M) - NetFn = App (0x06h), CMD = 0x57h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x57 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 18 57 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x57 0x01
+ 00 00 ff
+$ ipmitool raw 0x06 0x57 0x00
+ 00 88 50 50
+
+
+
+Get BT Interface Capabilities (M) - NetFn = App (0x06h), CMD = 0x36h
+
+
+Master Write-Read - NetFn = App (0x06h), CMD = 0x52h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x52 Data[1:N]
+ipmitool i2c [bus= #] <i2caddr> <read bytes> [write data]
+[IPMI tool under DOS]
+ipmitool 20 18 52 Data[1:N]
+
+For example
+[IPMI tool in Linux]
+Write
+$ ipmitool raw 0x06 0x52 0x03 0xa4 0x00 0x00 0x00 0x01 0x20 0x00 0x01 0x00 0x10 0x00 0xce
+
+$ ipmitool i2c bus=1 0xa4 0x00 0x00 0x00 0x01 0x20 0x00 0x01 0x00 0x10 0x00 0xce
+
+
+Read
+$ ipmitool raw 0x06 0x52 0x03 0xa4 0x08 0x00 0x00
+ 01 20 00 01 00 10 00 ce
+$ ipmitool i2c bus=1 0xa4 0x08 0x00 0x00
+ 01 20 00 01 00 10 00 ce
+
+
+[IPMI tool under DOS]
+Write
+C:\> ipmitool 20 18 52 03 a4 00 00 00 01 20 00 01 00 10 00 ce
+20 1c 52 00
+Read
+C:\> ipmitool 20 18 52 03 a4 08 00 00
+20 1c 52 00 01 20 00 01 00 10 00 ce
+
+
+Get System GUID - NetFn = App (0x06h), CMD = 0x37h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x37
+ipmitool mc guid
+ipmitool bmc guid
+[IPMI tool under DOS]
+ipmitool 20 18 37
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x37
+ 8c 88 a5 15 ac b2 e1 02 00 10 d2 1d 2e 1b 5f 21
+$ ipmitool mc guid
+System GUID  : 15a5888c-b2ac-02e1-0010-d21d2e2b5f21
+Timestemp    : 07/05/1981 16:32:12
+
+
+Set System Info Parameters - NetFn = App (0x06h), CMD = 0x58h
+
+
+Get System Info Parameters - NetFn = App (0x06h), CMD = 0x59h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x59 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x59 0x00 0x00 0x00 0x00 
+ 11 00
+
+
+Get Channel Authentication Capabilities - NetFn = App (0x06h), CMD = 0x38h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x38 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x38 0x8f 0x04
+ 0f 80 00 00 00 00 00 00
+
+
+Get Channel Cipher Suites - NetFn = App (0x06h), CMD = 0x54h
+Get Session Challenge - NetFn = App (0x06h), CMD = 0x39h
+Activate Session - NetFn = App (0x06h), CMD = 0x3ah
+
+
+Set Session Privilege Level - NetFn = App (0x06h), CMD = 0x3bh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x3b 0x04
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x3b 0x04
+ 04
+
+
+Close Session - NetFn = App (0x06h), CMD = 0x3ch
+
+
+Get Session Info - NetFn = App (0x06h), CMD = 0x3dh
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x3d Data[1]
+[IPMI tool under DOS]
+ipmitool 20 18 3d Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x3d 0x00
+ 40 24 01 02 04 01 c0 a8 01 03 40 61 86 7b b5 d0
+ 0d 0f
+
+
+
+Get AuthCode - NetFn = App (0x06h), CMD = 0x3fh
+Set Channel Access - NetFn = App (0x06h), CMD = 0x40h
+
+
+Get Channel Access - NetFn = App (0x06h), CMD = 0x41h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x41 Data[1:2]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x41 0x01 0x80
+ 02 04
+
+
+Get Channel Info - NetFn = App (0x06h), CMD = 0x42h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x42 Data[1]
+ipmitool channel info Data[1]
+[IPMI tool under DOS]
+ipmitool 20 18 42 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x42 0x01
+ 01 04 01 81 f2 1b 00 00 00
+$ ipmitool channel info 0x01
+Channel 0x1 info:
+  Channel Medium Type   : 802.3 LAN
+  Channel Protocol Type : IPMB-1.0
+  Session Support       : multi-session
+  Active Session Count  : 1
+  Protocol Vendor ID    : 7154
+  Volatile(active) Settings
+    Alerting            : enabled
+    Per-message Auth    : enabled
+    User Level Auth     : enabled
+    Access Mode         : always available
+  Non-Volatile Settings
+    Alerting            : enabled
+    Per-message Auth    : enabled
+    User Level Auth     : enabled
+    Access Mode         : always available
+
+
+Set Channel Security Keys - NetFn = App (0x06h), CMD = 0x56h
+
+Set User Access - NetFn = App (0x06h), CMD = 0x43h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x43 Data[1:4]
+ipmitool user enable <user id>
+ipmitool user disable <user id>
+ipmitool user priv <user id> <privilege level> [<channel number>]
+
+For example
+[IPMI tool in Linux]
+set user id 0x03 privilege level to USER
+$ ipmitool raw 0x06 0x43 0x01 0x03 0x02 0x00
+
+$ ipmitool user priv 0x03 0x02
+$ ipmitool user priv 0x03 0x02 0x01
+
+enable user id 0x03
+$ ipmitool user enable 0x03
+
+
+Get User Access - NetFn = App (0x06h), CMD = 0x44h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x44 Data[1:2]
+ipmitool user summary [<channel number>]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x44 0x01 0x02
+ 0a 43 02 54
+$ ipmitool user summary
+Maximum IDs           : 10
+Enabled User Count  : 2
+Fixed Name Count    : 2
+
+
+Set User Name - NetFn = App(0x06), CMD= 0x45h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x45 Data[1:6]
+ipmitool user set name <user id> <username>
+[IPMI tool under DOS]
+ipmitool 20 18 45 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x45 0x02 0x41 0x44 0x4d 0x49 0x4e
+$ ipmitool user set name 0x03 guest
+
+
+Get User Name - NetFn = App(0x06), CMD= 0x46h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x46 Data[1]
+ipmitool user list
+[IPMI tool under DOS]
+ipmitool 20 18 46 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x46 0x02
+ 41 44 4d 49 4e 00 00 00 00 00 00 00 00 00 00 00 
+$ ipmitool user list
+ID  Name      Callin  Link Auth IPMI Msg   Channel Priv Limit
+1             false   false     true               ADMINISTRATOR
+2   ADMIN     false   false     true               ADMINISTRATOR
+3   guest     true    false     false              NO ACCESS
+
+
+Set User Password - NetFn = App(0x06), CMD= 0x47h
+[IPMI tool in Linux]
+ipmitoo raw 0x06 0x47 Data[1:22]
+ipmitool user set password <user id> [<password>]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool user set password 0x03 TEST
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

@@ -1,0 +1,26 @@
+Get Asset Tag - NetFn = DCGRP (0x2ch), CMD = 0x06h, Privilege Level = User
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x06 0xdc
+ipmitool dcmi asset_tag
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x06 0xdc 0x00 0x10
+ dc 04 41 42 43 44 00 00 00 00 00 00 00 00 00 00
+ 00 00
+$ ipmitool dcmi asset_tag
+
+ Asset tag: ABCD
+
+
+Set Asset Tag - NetFn = DCGRP (0x2ch), CMD = 0x08h, Privilege Level = Operator
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x08 0xdc Data[2:N]
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "Data Center Manageability Interface: Spec, V1.5"
+[3] "IPMItool" http://ipmitool.sourceforge.net/
+[4] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[5] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

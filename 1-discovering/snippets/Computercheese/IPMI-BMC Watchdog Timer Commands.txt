@@ -1,0 +1,64 @@
+Reset Watchdog Timer - NetFn = App (0x06h), CMD = 0x22h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x22
+ipmitool mc watchdog reset
+[IPMI tool under DOS]
+ipmitool 20 18 22
+
+For exmaple
+[IPMI tool in Linux]
+$ ipmitool mc watchdog reset
+IPMI Watchdog Timber Reset -  countdown restarted!
+
+
+
+Set Watchdog Timer - NetFn = App (0x06h), CMD = 0x24h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x24 Data[1:6]
+ipmitool mc watchdog off
+[IPMI tool under DOS]
+ipmitool 20 18 24 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool mc watchdog off
+Watchdog Timer Shutoff successful -- timer stopped
+
+
+Get Watchdog Timer - NetFn = App (0x06h), CMD = 0x25h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x25
+ipmitool mc watchdog get
+[IPMI tool under DOS]
+ipmitool 20 18 25
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x25
+ 81 03 01 00 64 00 64 00
+$ ipmitool mc watchdog get
+Watchdog Timer Use:     BIOS FRB2 (0x81)
+Watchdog Timer Is:      Stopped
+Watchdog Timer Actions: Power Cycle (0x03)
+Pre-timeout interval:   1 seconds
+Timer Expiration Flags: 0x00
+Initial Countdown:      10 sec
+Present Countdown:      10 sec
+
+
+For example
+[IPMI tool in Linux]
+Step 1. Set Watchdog Timer
+$ ipmitool raw 0x06 0x24 0x01 0x03 0x01 0x02 0x64 0x00
+Step 2. Reset Watchdog Timer
+$ ipmitool raw 0x06 0x22
+Step 3. Get Watchdog Timer
+$ ipmitool raw 0x06 0x25
+
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

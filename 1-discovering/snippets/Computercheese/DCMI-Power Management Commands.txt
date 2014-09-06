@@ -1,0 +1,82 @@
+Get Power Reading (O) - NetFn = DCGRP (0x2ch), CMD = 0x02h, Privilege Level = User
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x02 0xdc Data[2:4]
+ipmitool dcmi power reading
+
+For example
+[IPMI tool in Linux]
+$ipmitool raw 0x2c 0x02 0xdc 0x01 0x01 0x00
+ dc 28 00 1e 00 47 00 1e 00 1b 58 8c 51 88 13 00
+ 00 01
+$ ipmitool dcmi power reading
+
+    Instantaneous power reading:                    42 Watts
+    Minimum during sampling period:                  2 Watts
+    Maximum during sampling period:                 81 Watts
+    Average power reading over sample period:       31 Watts
+    IPMI timestamp:                           Wed May 15 00:03:26 2013
+    Sampling period:                          00005000 Milliseconds
+    Power reading state is:                   deactivated
+
+
+Get Power Limit (O) - NetFn = DCGRP (0x2ch), CMD = 0x03h, Privilege Level = User
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x03 0xdc 0x00 0x00
+ipmitool dcmi power get_limit
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x03 0xdc 0x00 0x00
+ dc 00 00 01 f4 01 e8 03 00 00 00 00 05 00
+$ ipmitool dcmi power get_limit
+
+    Current Limit State: Power Limit Active
+    Exception actions:   Hard Power Off & Log Event to SEL
+    Power Limit:         500 Watts
+    Correction time:     1000 milliseconds
+    Sampling period:     5 seconds
+
+
+Set Power Limit (O) - NetFn = DCGRP (0x2ch), CMD = 0x04h, Privilege Level = Operator
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x04 0xdc 0x01 0x00 0x00 Data[5:15]
+ipmitool dcmi power set_limit <parameter> <value>
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x04 0xdc 0x00 0x00 0x01 0x11 0x02 0x02 0x01 0x01 0x01 0x20 0x01 0x01 0x10 0x10
+
+
+Activate Power Limit (O) - NetFn = DCGRP (0x2ch), CMD = 0x05h, Privilege Level = Operator
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x05 0xdc Data[2:4]
+ipmitool dcmi power deactivate
+ipmitool dcmi power activate
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x05 0xdc 0x01 0x00 0x00
+ dc
+$ ipmitool dcmi power deactivate
+
+    Power limit successfully deactivated
+
+$ ipmitool dcmi power activate
+
+    Power limit successfully activated
+
+
+Scenario to set power limit:
+1. Get Power Reading
+2. Get Power Limit
+3. Deactivate Power Limit
+4. Set Power Limit
+5. Activate Power Limit
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "Data Center Manageability Interface: Spec, V1.5"
+[3] "IPMItool" http://ipmitool.sourceforge.net/
+[4] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[5] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

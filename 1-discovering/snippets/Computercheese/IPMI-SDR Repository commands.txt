@@ -1,0 +1,117 @@
+Get SDR Repository Info - NetFn = Storage (0x0ah), CMD = 0x20h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x20
+ipmitool sdr info
+[IPMI tool under DOS]
+ipmitool 20 28 20
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x20
+ 51 1e 00 40 20 00 00 00 00 00 00 00 00 27
+$ ipmitool sdr info
+SDR Version                         : 0x51
+Record Count                        : 26
+Free Space                          : 8496 bytes
+Most recent Addition                : 
+Most recent Erase                   : 
+SDR overflow                        : no
+SDR Repository Update Support       : non-modal
+Delete SDR supported                : no
+Partial Add SDR supported           : yes
+Reserve SDR repository supported    : yes
+SDR Repository Alloc info supported : no
+
+
+Get SDR Repository Allocation Info - NetFn = Storage (0x0ah), CMD = 0x21h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x21
+[IPMI tool under DOS]
+ipmitool 20 28 21
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x21
+ 7f 02 10 00 04 02 04 02 08
+
+
+Reserve SDR Repository - NetFn = Storage (0x0ah), CMD = 0x22h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x22
+[IPMI tool under DOS]
+ipmitool 20 28 22
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x22
+ 01 00
+
+
+Get SDR - NetFn = Storage (0x0ah), CMD = 0x23h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x23 Data[1:6]
+ipmitool sdr
+ipmitool sdr list [all|full|compact|event|mcloc|fru|generic]
+ipmitool sdr elist [all|full|compact|event|mcloc|fru|generic]
+[IPMI tool under DOS]
+ipmitool 20 28 23 Data[1:6]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x23 0x00 0x00 0xff 0x0ff 0x00 0x10
+ ff ff 1e 00 51 01 3a 20 00 24 03 00 7f 68 01 01
+ 95 7a
+$ ipmitool sdr
+Temp01  | 52 degrees C     | ok
+Watchdog2 | 0x00              | ok
+$ ipmitool sdr elist
+Temp01  | 17h | ok  |  3.0 | 52 degrees C
+Watchdog2  | 30h | ok  |  7.2 |
+Get Threshold sensors SDR
+$ ipmitool sdr list full
+Temp01  | 52 degrees C     | ok
+Get Discrete sensors SDR
+$ ipmitool sdr list compact
+Watchdog2 | 0x00              | ok
+
+
+Add SDR (M) - NetFn = Storage (0x0ah), CMD = 0x24h
+Partial Add SDR - NetFn = Storage (0x0ah), CMD = 0x25h
+Delete SDR - NetFn = Storage (0x0ah), CMD = 0x26h
+Clear SDR Repository (M) - NetFn = Storage (0x0ah), CMD = 0x27h
+
+
+Get SDR Repository Time - NetFn = Storage (0x0ah), CMD = 0x28h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x28
+[IPMI tool under DOS]
+ipmitool 20 28 28
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x28
+ d0 ec de 51
+
+
+Set SDR Repository Time (O/M) - NetFn = Storage (0x0ah), CMD = 0x29h
+Enter SDR Repository Update Mode - NetFn = Storage (0x0ah), CMD = 0x2Ah
+Exit SDR Repository Update Mode - NetFn = Storage (0x0ah), CMD = 0x2Bh
+
+
+Run Initialization Agent - NetFn = Storage (0x0ah), CMD = 0x2Ch
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x2c Data[1]
+[IPMI tool under DOS]
+ipmitool 20 28 2c Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x2c 0x01
+ 01
+
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

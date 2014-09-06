@@ -1,0 +1,47 @@
+Get DCMI Capabilities Info - NetFn = DCGRP (0x2ch), CMD = 0x01h, Privilege Level = User
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x01 0xdc 0x01
+[IPMI tool under DOS]
+ipmitool 20 b0 01 dc 01
+[IPMIUTIL]
+ipmiutil cmd 00 20 b0 01 dc 01
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x01 0xdc 0x01
+ dc 01 00 02 0f 00 39
+[IPMI tool under DOS]
+C:\> ipmitool 20 b0 01 dc 01
+b4 01 00 dc 01 00 02 0f 00 39
+
+Set DCMI Configuration Parameters - NetFn = DCGRP (0x2ch), CMD = 0x12h, Privilege Level = Admin
+Get DCMI COnfiguration Parameters - NetFn = DCGRP (0x2ch), CMD = 0x13h, Privilege Level = User
+
+
+Get Management Controller Identifier String - NetFn = DCGRP (0x2ch), CMD = 0x09h, Privilege Level = User
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x09 0xdc Data[2:3]
+[IPMI tool under DOS]
+ipmitool 20 b0 09 dc Data[2:3]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x2c 0x09 0xdc 0x00 0x10
+ dc 0f 41 41 41 33 33 33 33 33 41 30 30 30 30 30
+ 30 00
+[IPMI tool under DOS]
+C:\> ipmitool 20 b0 09 dc 00 10
+b4 09 00 dc 0f 41 41 41 33 33 33 33 33 41 30 30 30 30 30 30 00
+
+
+Set Management Controller Identifier String - NetFn = DCGRP (0x2ch), CMD = 0x0ah, Privilege Level = ADMIN
+[IPMI tool in Linux]
+ipmitool raw 0x2c 0x0a 0xdc Data[2:N]
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "Data Center Manageability Interface: Spec, V1.5"
+[3] "IPMItool" http://ipmitool.sourceforge.net/
+[4] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[5] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/

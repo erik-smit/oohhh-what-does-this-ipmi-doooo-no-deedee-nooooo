@@ -1,0 +1,75 @@
+Get FRU Inventory Area Info - NetFn = Storage (0x0ah), CMD = 0x10h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x10 Data[1]
+[IPMI tool under DOS]
+ipmitool 20 28 10 Data[1]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x10 0x00
+ ff 00 00
+
+
+Read FRU Data - NetFn = Storage (0x0ah), CMD = 0x11h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x11 Data[1:4]
+ipmitool fru
+ipmitool fru print <FRU Device ID>
+[IPMI tool under DOS]
+ipmitool 20 28 11 Data[1:4]
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x0a 0x11 0x00 0x00 0x00 0xff
+ 68 01 01 02 04 08 00 00 f0 01 00 01 04 00 00 03
+ 00 00 00 17 00 00 30 00 30 c0 c0 c1 00 00 00 00
+ f2 01 04 00 9c 00 8b c3 00 00 00 c4 00 03 00 30
+ c0 c7 4d 00 2d 00 30 00 00 c0 c0 c1 00 00 00 00
+ ba 01 05 00 c3 00 00 00 c7 40 00 00 00 30 00 00
+ c7 40 50 20 50 30 30 30 c0 30 2e 30 c0 c0 c0 c0
+ c1 00 00 00 00 00 00 00 19
+$ ipmitool fru
+FRU Device Description : Builtin FRU Device (ID 0)
+ Chassis Type    : Rack Mount Chassis
+ Chassis Part Number  : S000
+ Board Mfg Date        : Tue May  7 05:20:00 2013
+ Board Mfg             : CPC
+ Board Product         : S000
+ Board Part Number     : RX-0000
+ Product Manufacturer  : CPC
+ Product Name          : XXXXXX
+ Product Part Number   : XXXXXX
+ Product Version       : 1.1
+$ ipmitool fru print 0x00
+FRU Device Description : Builtin FRU Device (ID 0)
+ Chassis Type    : Rack Mount Chassis
+ Chassis Part Number  : S000
+ Board Mfg Date        : Tue May  7 05:20:00 2013
+ Board Mfg             : CPC
+ Board Product         : S000
+ Board Part Number     : RX-0000
+ Product Manufacturer  : CPC
+ Product Name          : XXXXXX
+ Product Part Number   : XXXXXX
+ Product Version       : 1.1
+
+
+Write FRU Data - NetFn = Storage (0x0ah), CMD = 0x12h
+[IPMI tool in Linux]
+ipmitool raw 0x0a 0x12 Data[1:N]
+[IPMI tool under DOS]
+ipmitool 20 28 12 Data[1:N]
+
+For example
+[IPMI tool in Linux]
+$ipmitool raw 0x0a 0x12 0x00 0x00 0x00 0x01 0x01 0x02 0x04 0x08 0x00 0x00 0xF0
+ 08
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "- IPMI - Platform Management FRU Information Storage Definition v1.0"
+[3] "IPMItool" http://ipmitool.sourceforge.net/
+[4] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[5] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/
+

@@ -1,0 +1,127 @@
+Get Device ID - NetFn = App (0x06h), CMD = 0x01h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x01
+ipmitool mc
+ipmitool mc info
+[IPMI tool under DOS]
+ipmitool 20 18 01
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x01
+ 20 01 00 09 02 bf 83 23 00 00 00 00 00 00 00
+$ ipmitool mc info
+Device ID                 : 0
+Device Revision           : 0
+Firmware Revision         : 1.02
+IPMI Version              : 2.0
+Manufacturer ID           : 262145
+Manufacturer Name         : Unknown (0x01)
+Product ID                : 0 (0x0000)
+Product Name              : Unknown (0x0)
+Device Available          : yes
+Provides Device SDRs      : no
+Additional Device Support :
+    Sensor Device
+    SDR Repository Device
+    SEL Device
+    FRU Inventory Device
+Aux Firmware Rev Info     : 
+    0xb9
+    0x0c
+    0x00
+    0x00
+
+[IPMI tool under DOS]
+C:\> ipmitool 20 18 01
+20 1C 01 00 20 01 00 10 02 BF 83 23 00 00 00 00 00 00 00
+
+
+Cold Reset - NetFn = App (0x06h), CMD = 0x02h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x02
+ipmitool mc reset cold
+[IPMI tool under DOS]
+ipmitool 20 18 02
+
+
+Warm Reset - NetFn = App (0x06h), CMD = 0x03h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x03
+ipmitool mc reset worm
+[IPMI tool under DOS]
+ipmitool 20 18 03
+
+
+Get Self Test Result - NetFn = App (0x06h), CMD = 0x04h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x04
+ipmitool mc selftest
+[IPMI tool under DOS]
+ipmitool 20 18 04
+
+For example
+[IPMI tool in Linux]
+No error
+$ ipmitool raw 0x06 0x04
+ 55 00
+$ ipmitool mc selftest
+Selftest: passed
+
+Internal Use Area of BMC FRU corrupted
+$ ipmitool raw 0x06 0x04
+ 57 04
+
+
+Manufacturing Test On - NetFn = App (0x06h), CMD = 0x05h
+
+
+Set ACPI Power State - NetFn = App (0x06h), CMD = 0x06h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x06 Data[1:2]
+[IPMI tool under DOS]
+ipmitool 20 18 06 Data[1:2]
+
+For example
+Set System Power State to S5 and Device Power State to D0
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x06 0x85 0x80
+
+
+[IPMI tool under DOS]
+C:\> ipmitool 20 18 06 85 80
+1c 06 00
+
+
+Get ACPI Power State - NetFn = App (0x06h), CMD = 0x07h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x07
+[IPMI tool under DOS]
+ipmitool 20 18 07
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x07
+ 05 00
+[IPMI tool under DOS]
+C:\> ipmitool 20 18 07
+1c 07 00 05 00
+
+
+Get Device GUID - NetFn = App (0x06h), CMD = 0x08h
+[IPMI tool in Linux]
+ipmitool raw 0x06 0x08
+[IPMI tool under DOS]
+ipmitool 20 18 08
+
+For example
+[IPMI tool in Linux]
+$ ipmitool raw 0x06 0x08
+ 8c 88 a5 15 ac b2 e1 02 00 10 d2 1d 54 b6 62 21
+
+
+Reference
+[1] "Intelligent Platform Management Interface Specification Second Generation v2.0"
+[2] "IPMItool" http://ipmitool.sourceforge.net/
+[3] "IPMI Command Test Tool" http://www.intel.com/design/servers/ipmi/ipmi_tool.htm
+[4] "IPMIUTIL USER GUIDE" http://ipmiutil.sourceforge.net/
