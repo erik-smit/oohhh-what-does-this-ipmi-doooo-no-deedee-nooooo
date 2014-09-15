@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ICMD="ipmitool -I lan -H 172.24.254.128 -U ADMIN -P ADMIN -t 0x2c raw "
+ICMD="ipmitool raw "
 
 for i in `seq $[0x0] 2 $[0xff]`; do
   for j in `seq 0 255`; do
-    RAW="0x`printf %x $i` 0x`printf %x $j`"
+    RAW="0x`printf %.2x $i` 0x`printf %.2x $j`"
     echo -n "$RAW |"
     OUTPUT=`$ICMD $RAW 2>&1 | cut -d: -f2- `
     if [[ $OUTPUT == Unable* ]]; then
