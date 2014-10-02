@@ -1,0 +1,441 @@
+Source: http://blog.devicenull.org/2014/06/06/x8sil-f-ipmi-serial-debug-port.html
+---------------------------------------------------------------------------------
+BL: SERIAL BAUD RATE - 115200 bps
+[OEM Setup GPIO Pin]:2 Port:2 Dir:1 Value:1
+ BL: FLASH - MX25L12805D FOUND
+
+
+
+WPCM450 Boot Loader [ Version:1.0.14 ]
+Rebuilt on Mar 23 2012
+HardCoded CPU: 180 MHz
+Memory Size is 0x8000000 Bytes, Flash Size is 0x1000000 Bytes
+Board designed by Winbond
+Hardware support provided at Winbond
+Copyright (c) Winbond Limited 2001 - 2006. All rights reserved.
+
+
+For help on the available commands type 'h'
+
+Press ESC to enter debug mode... Remain 10s
+Press ESC to enter debug mode... Remain 9s
+Press ESC to enter debug mode... Remain 8s
+Press ESC to enter debug mode... Remain 7s
+Press ESC to enter debug mode... Remain 6s
+Press ESC to enter debug mode... Remain 5s
+Press ESC to enter debug mode... Remain 4s
+Press ESC to enter debug mode... Remain 3s
+Press ESC to enter debug mode... Remain 2s
+Press ESC to enter debug mode... Remain 1s
+
+Processing image 1 ...
+Processing image 2 ...
+Processing image 3 ...
+Unzip image 3 ...
+Executing image 3 ...
+init started: BusyBox v1.12.0 (2014-01-02 18:15:33 PST)
+starting pid 685, tty '': '/etc/init.d/rcS'
+rm: cannot remove '/nv/system_log': No such file or directory
+***** load kernel module for bonding channel *****
+ls: /nv/ipctrl/*.sav: No such file or directory
+USB HID Module insert, Build Time 18:15:18
+register reboot notifier for usb k/m
+cp: cannot stat '/etc/IPMIdevicedesc_sample.xml': No such file or directory
+[Linda Debug] num_lan= 0, board_id= 0
+Create debug files - /tmp/message
+[run_shellcmd] insmod /bin/module/eth_wpcm450mac.ko ChannelNum1=1
+PhyTblIdx[0] 1 Auto scan phy completed, phyname RTL8201N phyaddr = 5
+Detect Phy in EMC0
+WPCM450 Ethernet(eth0) driver has been initialized successfully!
+Can't detect Phy in EMC1
+[NCSI 1] Select package ID 0
+[NCSI 1] Discovery all NCSI channels for this Package.
+[NCSI 1] DeSelect package ...............
+WPCM450 Ethernet(eth1) driver has been initialized successfully!
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/eth_wpcm450mac.ko ChannelNum1=1
+[run_shellcmd] insmod /bin/module/i2c.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/i2c.ko
+[run_shellcmd] insmod /bin/module/ipmb.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/ipmb.ko
+Load Default SDR from firmware(/etc/conf)
+NVRamInit() fails to initial SDR
+NVRamInit() fails to initial
+[run_shellcmd] insmod /bin/module/wdt_drv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/wdt_drv.ko
+Enable HW WDT timer
+[run_shellcmd] insmod /bin/module/gpiodrv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/gpiodrv.ko
+setup
+[PltCHASSIS_PowerInit] at_St_OEMPS.a_b_PSTimeoutEnable=0x1, at_St_OEMPS.a_w_PSTimeoutValue=0x1E
+[run_shellcmd] insmod /bin/module/uart_drv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/uart_drv.ko
+[UtilUsbHidSetMouseMode] The current Modes Relative Mode
+ Before Sensor_Init_Agent(1)
+the amount number of SDR records = 0
+the amount number of Sensors  = 0
+[GetSELTimeFromME] Fail in reading SEL Time from ME
+[GetSELTimeFromME] Retry Get SEL Time from ME.......0
+[GetSELTimeFromME] Retry Get SEL Time from ME.......1
+[GetSELTimeFromME] Retry Get SEL Time from ME.......2
+Got Error I2C From ME for Get SEL Time
+[OEMPostOS_Init]
+start dcmi_init
+[run_shellcmd] insmod /bin/module/kcs_drv.ko
+semaphore create done!SOLMsgHandler:SOL and UART share the same port
+PEFEntryTablePreConfig
+1 ninit.c:at_FW_UpdateMode = 0x0
+mknod: /dev/ipmb5: File exists
+[run_shellcmd] ip link set bond0 up; ifenslave bond0 eth0 eth1
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth0 to bond0: Cannot assign requested address
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth1 to bond0: Cannot assign requested address
+[run_shellcmd] ip link set bond0 down
+[debug] cmd = ip link set bond0 down
+[run_shellcmd] ip link set eth0 addr ff:ff:ff:ff:ff:ff
+video source:INT_VGA
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/kcs_drv.ko
+Empty IKVM Port in PS,use default port 5900
+UART_NONFLOWCTRL
+ip: SIOCSIFHWADDR: Cannot assign requested address
+[UtilSetMACAddr Debug] cmd = ip link set eth0 addr ff:ff:ff:ff:ff:ff
+[run_shellcmd] ip link set eth1 addr ff:ff:ff:ff:ff:ff
+dma_alloc_coherent LogAddr= ffc2c000
+dma_alloc_coherent PhyAddr= 03600000
+mknod: /dev/usb0: File exists
+Waiting for ready message from kernel
+Recieve Events from NIC Drive
+LAN Notifier Ready
+ip: SIOCSIFHWADDR: Cannot assign requested address
+[UtilSetMACAddr Debug] cmd = ip link set eth1 addr ff:ff:ff:ff:ff:ff
+[run_shellcmd] ip link set bond0 up; ifenslave bond0 eth0 eth1
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth0 to bond0: Cannot assign requested address
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth1 to bond0: Cannot assign requested address
+[run_shellcmd] /sbin/udhcpc -b -i bond0&
+[run_shellcmd] dhcp6c -c /etc/dhcpv6/dhcp6c.conf-stateless  -p /tmp/dhcp6c.pid bond0&
+mknod: /dev/usb1: File exists
+mknod: /dev/ipmb4: File exists
+mknod: /dev/usb2: File exists
+udhcpc (v1.12.0) started
+[LanConfigApply Debug] arpping , cmd = arping -b -c 2 0.0.0.0 -I bond0 >>/dev/null
+[run_shellcmd] arping -b -c 2 0.0.0.0 -I bond0 >>/dev/null
+SSL Certificate is not yet valid. Time maybe lost.
+arping: cannot connect to remote host (0.0.0.0): No such device
+[run_shellcmd] /etc/network/network6 bond0 start
+start Web server .............
+Jan  1 00:00:30 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_test.so
+Jan  1 00:00:30 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_identify_plugin.so
+Jan  1 00:00:31 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_cim_plugin.so
+Jan  1 00:00:31 [844] Plugin 'Test', version: 2.1.0
+Jan  1 00:00:31 [844] Plugin 'IdentifyResponse', version: 2.1.0
+Jan  1 00:00:31 [844] reading configuration file options
+Jan  1 00:00:31 [844] vendor namespaces: OpenWBEM=http://schema.openwbem.org/wbem/wscim/1/cim-schema/2,Linux=http://sblim.sf.net/wbem/wscim/1/cim-schema/2,OMC=http://schema.omc-project.org/wbem/wscim/1/cim-schema/2,PG=http://schema.openpegasus.org/wbem/wscim/1/cim-schema/2,IPMI=http://ipmi.aten.com/wbem/wscim/1/cim-schema/2
+Jan  1 00:00:31 [844] cim namespace: root
+Jan  1 00:00:31 [844] Registering interface
+Jan  1 00:00:31 [844] Plugin 'CIM Resource', version: 2.1.0
+Jan  1 00:00:31 [844] make new callback entry
+Jan  1 00:00:31 [844] make new callback entry
+Jan  1 00:00:31 [844] Registering 3 plugins
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Get
+Jan  1 00:00:31 [844] Registering endpoint for Get
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Enumerate
+Jan  1 00:00:31 [844] Registering endpoint for Enumerate
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for direct Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Release
+Jan  1 00:00:31 [844] Registering endpoint for Release
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Put
+Jan  1 00:00:31 [844] Registering endpoint for Put
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe
+Jan  1 00:00:31 [844] Registering endpoint for Subscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Unsubscribe
+Jan  1 00:00:31 [844] Registering endpoint for Unsubscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Renew
+Jan  1 00:00:31 [844] Registering Endpoint: (null)
+Jan  1 00:00:31 [844] Registering endpoint for Identify
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Get
+Jan  1 00:00:31 [844] Registering endpoint for direct Get
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Put
+Jan  1 00:00:31 [844] Registering endpoint for direct Put
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Create
+Jan  1 00:00:31 [844] Registering endpoint for direct Create
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Delete
+Jan  1 00:00:31 [844] Registering endpoint for Delete
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Enumerate
+Jan  1 00:00:31 [844] Registering endpoint for Enumerate
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for direct Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Release
+Jan  1 00:00:31 [844] Registering endpoint for Release
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe
+Jan  1 00:00:31 [844] Registering endpoint for Subscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Unsubscribe
+Jan  1 00:00:31 [844] Registering endpoint for Unsubscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Renew
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for Pull
+Jan  1 00:00:31 [844] Registering Endpoint: (null)
+Jan  1 00:00:31 [844] Registering endpoint for private EndPoint
+Jan  1 00:00:31 [844] subscription_repository_uri = /var/lib/openwsman/subscriptions
+Jan  1 00:00:31 [844]      Working on port 5985
+Jan  1 00:00:31 [844] Basic File authentication uses password file: /wsman/openwsman/etc/openwsman/simple_auth.passwd
+Verify the ssh key-/nv/dropbear/dropbear_rsa_host_key. Please wait.
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so
+Jan  1 00:00:32 [844] Initializing http server
+Jan  1 00:00:32 [844] init_ctx: initialized context 0x22d80
+Jan  1 00:00:32 [844] Registered CIM Indication Listener: /cimindicationlistener/*
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so for /cimindicationlistener
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so for /wsman
+Jan  1 00:00:32 [844] shttpd_listen: added socket 3
+Sending discover...
+
+Please press Enter to activate this console. PWSnrTask() at_b_HotSwapController=0
+Verify the ssh key-/nv/dropbear/dropbear_dss_host_key. Please wait.
+Configure IPv6 Network........
+==== Channel bonding task for IPv6 =====
+Sending discover...
+Starting SMASH daemon .....
+============ Done =============
+[run_shellcmd] killall -9 lldpd; /bin/lldpd &
+killall: lldpd: no process killed
+LLDP Service Restart...OK
+[run_shellcmd] ip route del default
+ip: RTNETLINK answers: No such process
+route: SIOCADDRT: Invalid argument
+[run_shellcmd] route add default gw 0.0.0.0 dev bond0
+route: SIOCADDRT: Invalid argument
+Sending discover...
+sysinfo.machine: armv5tejl
+sysinfo.sysname: Linux
+sysinfo.release: 2.6.17.WB_WPCM450.1.3
+lldp_systemdesc: armv5tejl/Linux 2.6.17.WB_WPCM450.1.3
+lldp_systemname: (none).(none)
+Find the footer, check the ATEN SYMBOL
+Find ATEN SYMBOL, Find the checksum
+CheckSum = 0x29618c71
+crc32 = 0x29618c71
+udhcpc leasefail
+No lease, forking to backgroundBL: SERIAL BAUD RATE - 115200 bps
+[OEM Setup GPIO Pin]:2 Port:2 Dir:1 Value:1
+ BL: FLASH - MX25L12805D FOUND
+
+
+
+WPCM450 Boot Loader [ Version:1.0.14 ]
+Rebuilt on Mar 23 2012
+HardCoded CPU: 180 MHz
+Memory Size is 0x8000000 Bytes, Flash Size is 0x1000000 Bytes
+Board designed by Winbond
+Hardware support provided at Winbond
+Copyright (c) Winbond Limited 2001 - 2006. All rights reserved.
+
+
+For help on the available commands type 'h'
+
+Press ESC to enter debug mode... Remain 10s
+Press ESC to enter debug mode... Remain 9s
+Press ESC to enter debug mode... Remain 8s
+Press ESC to enter debug mode... Remain 7s
+Press ESC to enter debug mode... Remain 6s
+Press ESC to enter debug mode... Remain 5s
+Press ESC to enter debug mode... Remain 4s
+Press ESC to enter debug mode... Remain 3s
+Press ESC to enter debug mode... Remain 2s
+Press ESC to enter debug mode... Remain 1s
+
+Processing image 1 ...
+Processing image 2 ...
+Processing image 3 ...
+Unzip image 3 ...
+Executing image 3 ...
+init started: BusyBox v1.12.0 (2014-01-02 18:15:33 PST)
+starting pid 685, tty '': '/etc/init.d/rcS'
+rm: cannot remove '/nv/system_log': No such file or directory
+***** load kernel module for bonding channel *****
+ls: /nv/ipctrl/*.sav: No such file or directory
+USB HID Module insert, Build Time 18:15:18
+register reboot notifier for usb k/m
+cp: cannot stat '/etc/IPMIdevicedesc_sample.xml': No such file or directory
+[Linda Debug] num_lan= 0, board_id= 0
+Create debug files - /tmp/message
+[run_shellcmd] insmod /bin/module/eth_wpcm450mac.ko ChannelNum1=1
+PhyTblIdx[0] 1 Auto scan phy completed, phyname RTL8201N phyaddr = 5
+Detect Phy in EMC0
+WPCM450 Ethernet(eth0) driver has been initialized successfully!
+Can't detect Phy in EMC1
+[NCSI 1] Select package ID 0
+[NCSI 1] Discovery all NCSI channels for this Package.
+[NCSI 1] DeSelect package ...............
+WPCM450 Ethernet(eth1) driver has been initialized successfully!
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/eth_wpcm450mac.ko ChannelNum1=1
+[run_shellcmd] insmod /bin/module/i2c.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/i2c.ko
+[run_shellcmd] insmod /bin/module/ipmb.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/ipmb.ko
+Load Default SDR from firmware(/etc/conf)
+NVRamInit() fails to initial SDR
+NVRamInit() fails to initial
+[run_shellcmd] insmod /bin/module/wdt_drv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/wdt_drv.ko
+Enable HW WDT timer
+[run_shellcmd] insmod /bin/module/gpiodrv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/gpiodrv.ko
+setup
+[PltCHASSIS_PowerInit] at_St_OEMPS.a_b_PSTimeoutEnable=0x1, at_St_OEMPS.a_w_PSTimeoutValue=0x1E
+[run_shellcmd] insmod /bin/module/uart_drv.ko
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/uart_drv.ko
+[UtilUsbHidSetMouseMode] The current Modes Relative Mode
+ Before Sensor_Init_Agent(1)
+the amount number of SDR records = 0
+the amount number of Sensors  = 0
+[GetSELTimeFromME] Fail in reading SEL Time from ME
+[GetSELTimeFromME] Retry Get SEL Time from ME.......0
+[GetSELTimeFromME] Retry Get SEL Time from ME.......1
+[GetSELTimeFromME] Retry Get SEL Time from ME.......2
+Got Error I2C From ME for Get SEL Time
+[OEMPostOS_Init]
+start dcmi_init
+[run_shellcmd] insmod /bin/module/kcs_drv.ko
+semaphore create done!SOLMsgHandler:SOL and UART share the same port
+PEFEntryTablePreConfig
+1 ninit.c:at_FW_UpdateMode = 0x0
+mknod: /dev/ipmb5: File exists
+[run_shellcmd] ip link set bond0 up; ifenslave bond0 eth0 eth1
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth0 to bond0: Cannot assign requested address
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth1 to bond0: Cannot assign requested address
+[run_shellcmd] ip link set bond0 down
+[debug] cmd = ip link set bond0 down
+[run_shellcmd] ip link set eth0 addr ff:ff:ff:ff:ff:ff
+video source:INT_VGA
+[UtilInsertDrvier] Insert the driver module insmod /bin/module/kcs_drv.ko
+Empty IKVM Port in PS,use default port 5900
+UART_NONFLOWCTRL
+ip: SIOCSIFHWADDR: Cannot assign requested address
+[UtilSetMACAddr Debug] cmd = ip link set eth0 addr ff:ff:ff:ff:ff:ff
+[run_shellcmd] ip link set eth1 addr ff:ff:ff:ff:ff:ff
+dma_alloc_coherent LogAddr= ffc2c000
+dma_alloc_coherent PhyAddr= 03600000
+mknod: /dev/usb0: File exists
+Waiting for ready message from kernel
+Recieve Events from NIC Drive
+LAN Notifier Ready
+ip: SIOCSIFHWADDR: Cannot assign requested address
+[UtilSetMACAddr Debug] cmd = ip link set eth1 addr ff:ff:ff:ff:ff:ff
+[run_shellcmd] ip link set bond0 up; ifenslave bond0 eth0 eth1
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth0 to bond0: Cannot assign requested address
+ifenslave: bond0: can't set hw address
+ifenslave: can't enslave eth1 to bond0: Cannot assign requested address
+[run_shellcmd] /sbin/udhcpc -b -i bond0&
+[run_shellcmd] dhcp6c -c /etc/dhcpv6/dhcp6c.conf-stateless  -p /tmp/dhcp6c.pid bond0&
+mknod: /dev/usb1: File exists
+mknod: /dev/ipmb4: File exists
+mknod: /dev/usb2: File exists
+udhcpc (v1.12.0) started
+[LanConfigApply Debug] arpping , cmd = arping -b -c 2 0.0.0.0 -I bond0 >>/dev/null
+[run_shellcmd] arping -b -c 2 0.0.0.0 -I bond0 >>/dev/null
+SSL Certificate is not yet valid. Time maybe lost.
+arping: cannot connect to remote host (0.0.0.0): No such device
+[run_shellcmd] /etc/network/network6 bond0 start
+start Web server .............
+Jan  1 00:00:30 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_test.so
+Jan  1 00:00:30 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_identify_plugin.so
+Jan  1 00:00:31 [844] Loading plugin: /wsman/openwsman/lib/openwsman/plugins/libwsman_cim_plugin.so
+Jan  1 00:00:31 [844] Plugin 'Test', version: 2.1.0
+Jan  1 00:00:31 [844] Plugin 'IdentifyResponse', version: 2.1.0
+Jan  1 00:00:31 [844] reading configuration file options
+Jan  1 00:00:31 [844] vendor namespaces: OpenWBEM=http://schema.openwbem.org/wbem/wscim/1/cim-schema/2,Linux=http://sblim.sf.net/wbem/wscim/1/cim-schema/2,OMC=http://schema.omc-project.org/wbem/wscim/1/cim-schema/2,PG=http://schema.openpegasus.org/wbem/wscim/1/cim-schema/2,IPMI=http://ipmi.aten.com/wbem/wscim/1/cim-schema/2
+Jan  1 00:00:31 [844] cim namespace: root
+Jan  1 00:00:31 [844] Registering interface
+Jan  1 00:00:31 [844] Plugin 'CIM Resource', version: 2.1.0
+Jan  1 00:00:31 [844] make new callback entry
+Jan  1 00:00:31 [844] make new callback entry
+Jan  1 00:00:31 [844] Registering 3 plugins
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Get
+Jan  1 00:00:31 [844] Registering endpoint for Get
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Enumerate
+Jan  1 00:00:31 [844] Registering endpoint for Enumerate
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for direct Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Release
+Jan  1 00:00:31 [844] Registering endpoint for Release
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Put
+Jan  1 00:00:31 [844] Registering endpoint for Put
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe
+Jan  1 00:00:31 [844] Registering endpoint for Subscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Unsubscribe
+Jan  1 00:00:31 [844] Registering endpoint for Unsubscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Renew
+Jan  1 00:00:31 [844] Registering Endpoint: (null)
+Jan  1 00:00:31 [844] Registering endpoint for Identify
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Get
+Jan  1 00:00:31 [844] Registering endpoint for direct Get
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Put
+Jan  1 00:00:31 [844] Registering endpoint for direct Put
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Create
+Jan  1 00:00:31 [844] Registering endpoint for direct Create
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/transfer/Delete
+Jan  1 00:00:31 [844] Registering endpoint for Delete
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Enumerate
+Jan  1 00:00:31 [844] Registering endpoint for Enumerate
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for direct Pull
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Release
+Jan  1 00:00:31 [844] Registering endpoint for Release
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe
+Jan  1 00:00:31 [844] Registering endpoint for Subscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Unsubscribe
+Jan  1 00:00:31 [844] Registering endpoint for Unsubscribe
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/08/eventing/Renew
+Jan  1 00:00:31 [844] Registering Endpoint: http://schemas.xmlsoap.org/ws/2004/09/enumeration/Pull
+Jan  1 00:00:31 [844] Registering endpoint for Pull
+Jan  1 00:00:31 [844] Registering Endpoint: (null)
+Jan  1 00:00:31 [844] Registering endpoint for private EndPoint
+Jan  1 00:00:31 [844] subscription_repository_uri = /var/lib/openwsman/subscriptions
+Jan  1 00:00:31 [844]      Working on port 5985
+Jan  1 00:00:31 [844] Basic File authentication uses password file: /wsman/openwsman/etc/openwsman/simple_auth.passwd
+Verify the ssh key-/nv/dropbear/dropbear_rsa_host_key. Please wait.
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so
+Jan  1 00:00:32 [844] Initializing http server
+Jan  1 00:00:32 [844] init_ctx: initialized context 0x22d80
+Jan  1 00:00:32 [844] Registered CIM Indication Listener: /cimindicationlistener/*
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so for /cimindicationlistener
+Jan  1 00:00:32 [844] Using Basic Authorization libwsman_file_auth.so for /wsman
+Jan  1 00:00:32 [844] shttpd_listen: added socket 3
+Sending discover...
+
+Please press Enter to activate this console. PWSnrTask() at_b_HotSwapController=0
+Verify the ssh key-/nv/dropbear/dropbear_dss_host_key. Please wait.
+Configure IPv6 Network........
+==== Channel bonding task for IPv6 =====
+Sending discover...
+Starting SMASH daemon .....
+============ Done =============
+[run_shellcmd] killall -9 lldpd; /bin/lldpd &
+killall: lldpd: no process killed
+LLDP Service Restart...OK
+[run_shellcmd] ip route del default
+ip: RTNETLINK answers: No such process
+route: SIOCADDRT: Invalid argument
+[run_shellcmd] route add default gw 0.0.0.0 dev bond0
+route: SIOCADDRT: Invalid argument
+Sending discover...
+sysinfo.machine: armv5tejl
+sysinfo.sysname: Linux
+sysinfo.release: 2.6.17.WB_WPCM450.1.3
+lldp_systemdesc: armv5tejl/Linux 2.6.17.WB_WPCM450.1.3
+lldp_systemname: (none).(none)
+Find the footer, check the ATEN SYMBOL
+Find ATEN SYMBOL, Find the checksum
+CheckSum = 0x29618c71
+crc32 = 0x29618c71
+udhcpc leasefail
+No lease, forking to background

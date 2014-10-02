@@ -1,3 +1,5 @@
+Source: http://pastebin.com/67fxc52g
+------------------------------------
 U-Boot 1.2.0 (Jul  2 2010 - 17:02:47) Avocent (0.1.8) EVB
  
 Board: AST2050
