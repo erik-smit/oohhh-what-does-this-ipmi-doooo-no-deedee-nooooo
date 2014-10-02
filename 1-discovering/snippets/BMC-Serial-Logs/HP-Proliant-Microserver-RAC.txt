@@ -1,0 +1,1759 @@
+U-Boot 1.2.0 (Jul  2 2010 - 17:02:47) Avocent (0.1.8) EVB
+ 
+Board: AST2050
+DRAM:  128 MB
+Detect S25FL128P Flash
+Flash: 16 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   FXN !check
+eth#0, ncsi#1
+Hit any key to stop autoboot:  0
+Copying kernel image ... KERNEL copy to ram OK
+Copying rootfs image ... OK
+## Booting image at 41400000 ...
+   Image Name:   arm-linux
+   Image Type:   ARM Linux Kernel Image (gzip compressed)
+   Data Size:    1613402 Bytes =  1.5 MB
+   Load Address: 40008000
+   Entry Point:  40008000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+ 
+Starting kernel ...
+ 
+init started: BusyBox v1.8.2 (2010-08-26 18:02:31 CST)
+starting pid 202, tty '': '/etc/init.d/rcS'
+ 
+========================
+Wed Feb  1 18:36:45 UTC 2012
+========================
+waitforaim: AIM started sec:1328121410 usec:202923 ended: sec:1328121410 usec::234565 elapsed:0.031642
+ 
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+waitforsm: aim_config_get_int failed, SM did not start
+killall: udhcpc: no process killed
+ 
+udhcpc (v1.8.2) started
+DHCPv4 script:
+  Command     : deconfig
+  Interface   : eth0
+  IP Address  :
+  Subnet Mask :
+  Routers     :
+  DNS Servers :
+  Hostname    :
+  Domain      :
+Reading committed configuration...
+configuring eth0 Link-Local address
+deconfig command
+Configuration command line: iBMC inet dhcp_renew add 0.0.0.0 netmask 0.0.0.0 route 0.0.0.0 dns1 0.0.0.0 dns2 0.0.0.0
+add command
+Store IPv4 '0.0.0.0'
+eth0 MAC address is : D4:85:64:C9:E8:46
+== Requested Network Changes =============
+IPv4 DNS Server 1 -> '0.0.0.0'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '0.0.0.0'
+IPv4 Net Mask -------> '0.0.0.0'
+IPv4 Gateway --------> '0.0.0.0'
+==========================================
+EventCallback() - nEventType:3 szEvent: event_netchange_cfg_request nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_commit nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_start nSize:0
+avctifconfig - Now waiting for EVENT_NETCHANGE_ACTIVE.
+EventCallback() - nEventType:3 szEvent: event_netchange_active nSize:792
+avctifconfig - Our changes should now be active.
+aim_function_execute() returned success...
+Waited for 0 seconds.
+Discover_retries : 20
+Sending discover...
+eth0 Link-Local address is : FE80::d685:64FF:FEC9:E846
+Sending select for 192.168.1.11...
+ip: RTNETLINK answers: File exists
+Lease of 192.168.1.11 obtained, lease time 86400
+DHCPv4 script:
+  Command     : bound
+  Interface   : eth0
+  IP Address  : 192.168.1.11
+  Subnet Mask : 255.255.255.0
+  Routers     : 192.168.1.1
+  DNS Servers : 192.168.1.1
+  Hostname    : microserver-ipmi
+  Domain      : localdomain
+Reading committed configuration...
+Updating domain...
+ip: an inet address is expected rather than "N/A/N/A"
+Configuration command line: iBMC inet dhcp_renew add 192.168.1.11 netmask 255.255.255.0 route 192.168.1.1 domain localdomain dns1 192.168.1.1 dns2 0.0.0.0
+add command
+Store IPv4 '192.168.1.11'
+== Requested Network Changes =============
+Domain ------------> 'localdomain'
+IPv4 DNS Server 1 -> '192.168.1.1'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '192.168.1.11'
+IPv4 Net Mask -------> '255.255.255.0'
+IPv4 Gateway --------> '192.168.1.1'
+==========================================
+aim_function_execute() returned success...
+Waited for 0 seconds.
+ip: RTNETLINK answers: No such process
+ip: RTNETLINK answers: No route to host
+Log levels currently enabled:
+  AVCT_LOG_NONE
+  AVCT_LOG_ERROR
+  AVCT_LOG_WARNING
+SetVideoConfig[1941] Set Mode=1 Y=4 UV=23
+avct_init_video_capture[492] Video In Source Buf 2         = 0x46000000[5120K]
+avct_init_video_capture[495] Video IN Source Buf 1         = 0x45900000[5120K]
+avct_init_video_capture[504] Video Compress Buf Address[0] = 0x45880000[512K]
+avct_init_video_capture[511] Video BCD Buf Address         = 0x4587D800[10K]
+avct_init_video_capture[514] Video CRC Buf Address         = 0x45869800[80K]
+GetMemoryBandwidth[1831] GetMemoryBandwidth
+GetMemoryBandwidth[1832] Numerator        = 15
+GetMemoryBandwidth[1833] Denumerator      = 0
+GetMemoryBandwidth[1834] OutputDivider    = 1
+GetMemoryBandwidth[1835] Buswidth         = 16
+GetMemoryBandwidth[1836] Memory Clock     = 204
+GetMemoryBandwidth[1837] Memory Bandwidth = 530
+avct_init_video_capture[550] compression buffer address 45880000 mmap to address 4035E000 size 524288
+avct_init_video_capture[567] Using Driver's buffer for frame send
+create /mnt/scratchpad
+VDiskHandler() - Invalid device file for interface exiting...
+VDiskHandler() - Invalid device file for interface exiting...
+AddStore() - Unknown Image Store 2.
+AddStore() - Unknown Image Store 3.
+AvmpSend - Client 0, Already closed
+Starting debug for AIMLIB-ipmiSystemCallAgent
+aim_init() - szComponentName:ipmiSystemCallAgent ulProgNum:536872532
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536872532 in thread ID: 16386 process ID: 674
+aim_function_register() - result:0
+Success to open IO table bin file IO_fl.bin
+Success to open IO sensor table bin file IS_fl.bin
+Success to open IO index table bin file IX_fl.bin
+HWInitFunctionTable:MakeMemFile() FunctionTable.bin
+Success to open device ID bin file ID_devid.bin
+Success to open HWINFO FI_fwid.bin
+Success to open default value table oemdef.bin
+Starting debug for AIMLIB-IPMI
+aim_init() - szComponentName:IPMI ulProgNum:536870944
+ 
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536870944 in thread ID: 49156 process ID: 684
+Starting Network Interface Plugging Daemon: eth0update failed: REFUSED
+ bond0.
+update failed: REFUSED
+ 
+ 
+ 
+DcmiInit entry!!
+Get G_u32DcmiInitMode(2)
+ 
+ 
+ 
+Register DCMI_COMMAND_HOOK_TYPE function at 6a590
+Register DCMI Command-Hook function
+Success to open Virtual PS NVRAM_PrivateStorage00.dat
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:49 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:51 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+aim_function_register() - result:0
+Success to open Virtual SDR NVRAM_SDR00.dat
+creating /tmp/clp
+Register all IPMI Gateway APIs successfully.
+ 
+aim_config_get() - returned data length zero, parameter sol_int_idle_timer not found
+!!!IPv6BufferInit(139)...
+aim_event_callback_register() - nNumEvents:4
+aim_event_callback_register() - result:1
+aim_event_callback_register() - saving pEventCallback:68be0
+IPMI initial costs 6 seconds, 999998409 nanoseconds
+Start Nexus ...........................
+ 
+Memory Service: No memory limitation
+[NVStorage] Success to init NVStorage subsystem
+Abstraction Socket Layer Init Success...
+Thread GPTaskHi has been created successfully.
+Thread GPTaskLo has been created successfully.
+Creating config file.
+ 
+Thread EventingService has been created successfully.
+wsman port (5985,5986s)
+Thread HTTPService has been created successfully.
+cimom port (5988,5989s)
+Thread HTTPService2 has been created successfully.
+Thread ProviderInitSDR has been created successfully.
+Thread CMCITask has been created successfully.
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+Thread SHTTPDService has been created successfully.
+Thread SHTTPDService2 has been created successfully.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+CIM_Sensor_InstAgent_ReadInitSDR
+ 
+Starting GUIProcessMonitor
+ 
+starting pid 846, tty '': '/sbin/getty'sole.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+ 
+microserver-ipmi login: root
+Password: service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+ 
+[AST2050 ~]$ ki; Communication with fe80::c2c1:c0ff:fe1a:fb66#53 failed: timed out
+could not talk to specified name server
+llall osinet
+[AST2050 ~]$ dmesg
+<5>Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+<4>CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+<4>Machine: ASPEED-AST2050
+<4>Memory policy: ECC disabled, Data cache writeback
+<7>On node 0 totalpages: 27648
+<7>  DMA zone: 216 pages used for memmap
+<7>  DMA zone: 0 pages reserved
+<7>  DMA zone: 27432 pages, LIFO batch:7
+<7>  Normal zone: 0 pages used for memmap
+<7>  Movable zone: 0 pages used for memmap
+<4>CPU0: D VIVT write-back cache
+<4>CPU0: I cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>CPU0: D cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>Built 1 zonelists in Zone order.  Total pages: 27432
+<5>Kernel command line: root=/dev/ram0 rw initrd=0x42600000,0xD00000 ramdisk_size=13312 rootfstype=squashfs mem=108M console=ttyS0 quiet
+<4>PID hash table entries: 512 (order: 9, 2048 bytes)
+<4>Console: colour dummy device 80x30
+<6>console [ttyS0] enabled
+<6>Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+<6>Memory: 108MB = 108MB total
+<5>Memory: 92672KB available (3024K code, 324K data, 116K init)
+<7>Calibrating delay loop... 98.71 BogoMIPS (lpj=493568)
+<6>Security Framework v1.0.0 initialized
+<6>Capability LSM initialized
+<4>Mount-cache hash table entries: 512
+<6>CPU: Testing write buffer coherency: ok
+<7>DEV: registering device: ID = 'platform'
+<7>bus type 'platform' registered
+<7>Registering sysdev class '<NULL>'
+<6>NET: Registered protocol family 16
+<7>bus type 'amba' registered
+<7>device class 'tty': registering
+<7>device class 'vtconsole': registering
+<7>DEV: registering device: ID = 'vtcon0'
+<7>Registering sys device 'cpu0'
+<7>device class 'misc': registering
+<7>device class 'input': registering
+<7>device class 'net': registering
+<7>device class 'mem': registering
+<7>DEV: registering device: ID = 'mem'
+<7>DEV: registering device: ID = 'kmem'
+<7>DEV: registering device: ID = 'null'
+<7>DEV: registering device: ID = 'zero'
+<7>DEV: registering device: ID = 'full'
+<7>DEV: registering device: ID = 'random'
+<7>DEV: registering device: ID = 'urandom'
+<7>DEV: registering device: ID = 'kmsg'
+<6>NET: Registered protocol family 2
+<6>IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+<6>TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+<6>TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+<6>TCP: Hash tables configured (established 4096 bind 4096)
+<6>TCP reno registered
+<6>checking if image is initramfs...it isn't (bad gzip magic numbers); looks like an initrd
+<6>Freeing initrd memory: 13312K
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timer0'
+<4>NetWinder Floating Point Emulator V0.97 (double precision)
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timekeeping0'
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'clocksource0'
+<6>audit: initializing netlink socket (disabled)
+<5>audit(0.590:1): initialized
+<6>squashfs: version 3.4 (2008/08/26) Phillip Lougher
+<6>JFFS2 version 2.2. (NAND) (SUMMARY)  Â© 2001-2006 Red Hat, Inc.
+<4>fuse init (API version 7.8)
+<7>DEV: registering device: ID = 'fuse'
+<6>io scheduler noop registered
+<6>io scheduler deadline registered (default)
+<7>DEV: registering device: ID = 'tty'
+<7>DEV: registering device: ID = 'console'
+<7>DEV: registering device: ID = 'ptmx'
+<7>DEV: registering device: ID = 'tty0'
+<7>device class 'vc': registering
+<7>DEV: registering device: ID = 'vcs'
+<7>DEV: registering device: ID = 'vcsa'
+<7>DEV: registering device: ID = 'tty1'
+<7>DEV: registering device: ID = 'tty2'
+<7>DEV: registering device: ID = 'tty3'
+<7>DEV: registering device: ID = 'tty4'
+<7>DEV: registering device: ID = 'tty5'
+<7>DEV: registering device: ID = 'tty6'
+<7>DEV: registering device: ID = 'tty7'
+<7>DEV: registering device: ID = 'tty8'
+<7>DEV: registering device: ID = 'tty9'
+<7>DEV: registering device: ID = 'tty10'
+<7>DEV: registering device: ID = 'tty11'
+<7>DEV: registering device: ID = 'tty12'
+<7>DEV: registering device: ID = 'tty13'
+<7>DEV: registering device: ID = 'tty14'
+<7>DEV: registering device: ID = 'tty15'
+<7>DEV: registering device: ID = 'tty16'
+<7>DEV: registering device: ID = 'tty17'
+<7>DEV: registering device: ID = 'tty18'
+<7>DEV: registering device: ID = 'tty19'
+<7>DEV: registering device: ID = 'tty20'
+<7>DEV: registering device: ID = 'tty21'
+<7>DEV: registering device: ID = 'tty22'
+<7>DEV: registering device: ID = 'tty23'
+<7>DEV: registering device: ID = 'tty24'
+<7>DEV: registering device: ID = 'tty25'
+<7>DEV: registering device: ID = 'tty26'
+<7>DEV: registering device: ID = 'tty27'
+<7>DEV: registering device: ID = 'tty28'
+<7>DEV: registering device: ID = 'tty29'
+<7>DEV: registering device: ID = 'tty30'
+<7>DEV: registering device: ID = 'tty31'
+<7>DEV: registering device: ID = 'tty32'
+<7>DEV: registering device: ID = 'tty33'
+<7>DEV: registering device: ID = 'tty34'
+<7>DEV: registering device: ID = 'tty35'
+<7>DEV: registering device: ID = 'tty36'
+<7>DEV: registering device: ID = 'tty37'
+<7>DEV: registering device: ID = 'tty38'
+<7>DEV: registering device: ID = 'tty39'
+<7>DEV: registering device: ID = 'tty40'
+<7>DEV: registering device: ID = 'tty41'
+<7>DEV: registering device: ID = 'tty42'
+<7>DEV: registering device: ID = 'tty43'
+<7>DEV: registering device: ID = 'tty44'
+<7>DEV: registering device: ID = 'tty45'
+<7>DEV: registering device: ID = 'tty46'
+<7>DEV: registering device: ID = 'tty47'
+<7>DEV: registering device: ID = 'tty48'
+<7>DEV: registering device: ID = 'tty49'
+<7>DEV: registering device: ID = 'tty50'
+<7>DEV: registering device: ID = 'tty51'
+<7>DEV: registering device: ID = 'tty52'
+<7>DEV: registering device: ID = 'tty53'
+<7>DEV: registering device: ID = 'tty54'
+<7>DEV: registering device: ID = 'tty55'
+<7>DEV: registering device: ID = 'tty56'
+<7>DEV: registering device: ID = 'tty57'
+<7>DEV: registering device: ID = 'tty58'
+<7>DEV: registering device: ID = 'tty59'
+<7>DEV: registering device: ID = 'tty60'
+<7>DEV: registering device: ID = 'tty61'
+<7>DEV: registering device: ID = 'tty62'
+<7>DEV: registering device: ID = 'tty63'
+<7>DEV: registering device: ID = 'ptyp0'
+<7>DEV: registering device: ID = 'ptyp1'
+<7>DEV: registering device: ID = 'ptyp2'
+<7>DEV: registering device: ID = 'ptyp3'
+<7>DEV: registering device: ID = 'ptyp4'
+<7>DEV: registering device: ID = 'ptyp5'
+<7>DEV: registering device: ID = 'ptyp6'
+<7>DEV: registering device: ID = 'ptyp7'
+<7>DEV: registering device: ID = 'ttyp0'
+<7>DEV: registering device: ID = 'ttyp1'
+<7>DEV: registering device: ID = 'ttyp2'
+<7>DEV: registering device: ID = 'ttyp3'
+<7>DEV: registering device: ID = 'ttyp4'
+<7>DEV: registering device: ID = 'ttyp5'
+<7>DEV: registering device: ID = 'ttyp6'
+<7>DEV: registering device: ID = 'ttyp7'
+<7>device class 'raw': registering
+<7>DEV: registering device: ID = 'rawctl'
+<7>DEV: registering device: ID = 'nvram'
+<6>Non-volatile memory driver v1.2
+<6>ttyS0 at MMIO 0x1e784000 (irq = 10) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS0'
+<6>ttyS1 at MMIO 0x1e783000 (irq = 9) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS1'
+<4>RAMDISK driver initialized: 1 RAM disks of 13312K size 1024 blocksize
+<6>loop: module loaded
+<6>nbd: registered device at major 43
+<7>DEV: registering device: ID = 'lo'
+<4>eth0: at 0xfe660000 IRQ:2 noWait:0, MAC d4:85:64:c9:e8:46
+<7>DEV: registering device: ID = 'eth0'
+<7>device class 'mtd': registering
+<4>SPI Flash ID : 0x3182001
+<4>Detect SPI Flash ID : S25FL128P
+<5>Creating 4 MTD partitions on "s25fl128p":
+<5>0x00000000-0x00040000 : "AST2050 SPI FLASH (U-BOOT)"
+<7>CLASS: registering class device: ID = 'mtd0'
+<7>class_uevent - name = mtd0
+<7>class_device_create_uevent called for mtd0
+<7>CLASS: registering class device: ID = 'mtd0ro'
+<7>class_uevent - name = mtd0ro
+<7>class_device_create_uevent called for mtd0ro
+<5>0x00040000-0x00100000 : "AST2050 SPI FLASH (Private Storage)"
+<7>CLASS: registering class device: ID = 'mtd1'
+<7>class_uevent - name = mtd1
+<7>class_device_create_uevent called for mtd1
+<7>CLASS: registering class device: ID = 'mtd1ro'
+<7>class_uevent - name = mtd1ro
+<7>class_device_create_uevent called for mtd1ro
+<5>0x00100000-0x00300000 : "AST2050 SPI FLASH (Kernel)"
+<7>CLASS: registering class device: ID = 'mtd2'
+<7>class_uevent - name = mtd2
+<7>class_device_create_uevent called for mtd2
+<7>CLASS: registering class device: ID = 'mtd2ro'
+<7>class_uevent - name = mtd2ro
+<7>class_device_create_uevent called for mtd2ro
+<5>0x00300000-0x01000000 : "AST2050 SPI FLASH (Rootfs)"
+<7>CLASS: registering class device: ID = 'mtd3'
+<7>class_uevent - name = mtd3
+<7>class_device_create_uevent called for mtd3
+<7>CLASS: registering class device: ID = 'mtd3ro'
+<7>class_uevent - name = mtd3ro
+<7>class_device_create_uevent called for mtd3ro
+<4>Insert SPI NOR Flash module success!
+<4>success to register interrupt for INT_WDT (27)
+<7>DEV: registering device: ID = 'aess_wdtdrv'
+<6>ASPEED WDT is installed.(irq = 27, heartbeat = 10 secs, nowayout = 1)
+<4>mknod /dev/aess_wdtdrv c 10 130
+<7>bus type 'mmc' registered
+<7>device class 'mmc_host': registering
+<7>bus mmc: add driver mmcblk
+<6>IPv4 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'tunl0'
+<6>ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>TCP cubic registered
+<6>NET: Registered protocol family 1
+<6>NET: Registered protocol family 10
+<6>ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>IPv6 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'sit0'
+<6>NET: Registered protocol family 17
+<6>NET: Registered protocol family 15
+<6>802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+<6>All bugs added by David S. Miller <davem@redhat.com>
+<7>driver_probe_done: probe_count = 0
+<5>RAMDISK: squashfs filesystem found at block 0
+<5>RAMDISK: Loading 9920KiB [1 disk] into ram disk... done.
+<4>VFS: Mounted root (squashfs filesystem) readonly.
+<6>Freeing init memory: 116K
+<5>JFFS2 notice: (246) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+<7>KN:init_aess_mem_module
+<4>mknod /dev/aess_eventhandlerdrv c 254 0
+<4>mknod /dev/vkcs c 253 0
+<4>aess_kcsdrv: no version for "aess_generate_driver_event" found: kernel tainted.
+<4>mknod /dev/aess_kcsdrv c 252 0
+<4>mknod /dev/aess_memdrv c 251 0
+<4>mknod /dev/aess_biospostdrv c 250 0
+<4>mknod /dev/aess_gpiodrv c 249 0
+<4>mknod /dev/aess_dynairqdrv c 248 0
+<4>mknod /dev/aess_i2cdrv c 247 0
+<4>Init_aess_pecisensor_module Sucess!
+<4>mknod /dev/aess_pecisensordrv c 246 0
+<4>mknod /dev/aess_cryptodrv c 245 0
+<4>mknod /dev/aess_fansensordrv c 244 0
+<4>mknod /dev/aess_pwmdrv c 243 0
+<6>Ethernet Channel Bonding Driver: v3.1.3 (June 13, 2007)
+<6>bonding: MII link monitoring set to 200 ms
+<7>DEV: registering device: ID = 'bond0'
+<7>DEV: registering device: ID = 'vir0'
+<7>DEV: registering device: ID = 'vir1'
+<1>ncsi_notifier: eth0 device registered
+<1>ncsi_notifier new open: lo opened !
+<6>ADDRCONF(NETDEV_UP): bond0: link is not ready
+<1>ncsi_notifier: bond0 opened !
+<1>ncsi_notifier: eth0 device opened
+<1>ncsi_notifier: eth0 device downed
+<6>ADDRCONF(NETDEV_UP): eth0: link is not ready
+<1>ncsi_notifier: eth0 device opened
+<7>Registering platform device 'g_ast2050_udc.0'. Parent at platform
+<7>DEV: registering device: ID = 'g_ast2050_udc.0'
+<7>bus platform: add device g_ast2050_udc.0
+<7>bus platform: add driver g_ast2050_udc
+<7>platform: Matched Device g_ast2050_udc.0 with Driver g_ast2050_udc
+<7>platform: Probing driver g_ast2050_udc with device g_ast2050_udc.0
+<7>bound device 'g_ast2050_udc.0' to driver 'g_ast2050_udc'
+<7>platform: Bound Device g_ast2050_udc.0 to Driver g_ast2050_udc
+<1>composite_init() Desc: USB Composite Device
+<1>composite_init() Name: g_composite
+<1>composite_init() Version: 20090730
+<7>DEV: registering device: ID = 'gadget'
+<4>usb_udc: g_ast2050_udc: registered gadget driver 'g_composite'
+<1>hid_init: Desc: Keyboard/Mouse Function
+<1>hid_init: Name: g_kbdmouse
+<1>hid_init: Version: 20090618
+<7>usb_composite_register()
+<1>hid_bind: Using Major Number 242
+<1>hid_bind: using g_ast2050_udc, Keyboard ep1in-int Mouse ep2in-int
+<1>hid_bind: Mouse REL ep3in-int
+<1>usb_composite_register(): bind to driver 'g_kbdmouse' SUCCESSFUL
+<6>ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+<1>msd_init: Desc: Mass Storage Function
+<1>msd_init: Name: g_mass_storage
+<1>msd_init: Version: 20091022
+<7>usb_composite_register()
+<1>msd_bind: Using Major Number 241
+<1>usb_composite_register(): bind to driver 'g_mass_storage' SUCCESSFUL
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[0]
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[1]
+<1>g_kbdmouse: high speed config #1 for Keyboard/Mouse
+<1>standard_setup_req(): MSD_STATE_CONFIG_CHANGE config=1
+<1>g_mass_storage: high speed config #1 for interface[0]
+<1>g_mass_storage: high speed config #1 for interface[1]
+<1>g_composite g_ast2050_udc: high speed config #1
+<4>ioaccess_ioctl Max Res = 1280 X 1024 Ref Mem (5242880) @ 46000000 Cap Mem (6291456) @ 45800000
+<4>ioaccess_ioctl Data_Linear_address = 45880000[524288] mapped to C7100000
+<4>ioaccess_ioctl VGA_Linear_address = 07800000 mapped to C8000000
+<4>drv-SetupDirectMode[2827] Disabled direct mode VIDEOENGINE_VIDEO_CONTROL=001E0000
+<4>process `nsupdate' is using obsolete setsockopt SO_BSDCOMPAT
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>eth0: no IPv6 routers present
+[AST2050 ~]$ lsmod
+Module                  Size  Used by    Tainted: GF
+aess_video            173968  0
+g_mass_storage         33840  2
+g_kbdmouse             17356  4
+g_composite            16916  2 g_mass_storage,g_kbdmouse
+g_ast2050_udc          20912  1 g_composite
+ncsi_protocol          11212  0
+bonding                89484  0
+aess_pwmdrv            13996  0
+aess_fansensordrv      16972  0
+aess_cryptodrv         28396  0
+aess_pecisensordrv     20584  0
+aess_i2cdrv            50328  2
+aess_dynairqdrv        22524  0
+aess_gpiodrv           24720  1 aess_dynairqdrv
+aess_biospostdrv       19756  0
+aess_memdrv            19744  0
+aess_kcsdrv            37988  0
+vkcs                    5588  0
+aess_eventhandlerdrv    13708  3 aess_i2cdrv,aess_dynairqdrv,aess_kcsdrv
+[AST2050 ~]$ cat /proc/cpuinfo
+Processor       : ARM926EJ-S rev 5 (v5l)
+BogoMIPS        : 98.71
+Features        : swp half thumb fastmult edsp java
+CPU implementer : 0x41
+CPU architecture: 5TEJ
+CPU variant     : 0x0
+CPU part        : 0x926
+CPU revision    : 5
+Cache type      : write-back
+Cache clean     : cp15 c7 ops
+Cache lockdown  : format C
+Cache format    : Harvard
+I size          : 16384
+I assoc         : 4
+I line length   : 32
+I sets          : 128
+D size          : 16384
+D assoc         : 4
+D line length   : 32
+D sets          : 128
+ 
+Hardware        : ASPEED-AST2050
+Revision        : 0000
+Serial          : 0000000000000000
+[AST2050 ~]$ cat /proc/version
+Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+[AST2050 ~]$ uname -a
+Linux microserver-ipmi 2.6.23.1-ASPEED-v.0.11 #26 PREEMPT Thu Aug 26 17:58:31 CST 2010 armv5tejl unknownU-Boot 1.2.0 (Jul  2 2010 - 17:02:47) Avocent (0.1.8) EVB
+ 
+Board: AST2050
+DRAM:  128 MB
+Detect S25FL128P Flash
+Flash: 16 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   FXN !check
+eth#0, ncsi#1
+Hit any key to stop autoboot:  0
+Copying kernel image ... KERNEL copy to ram OK
+Copying rootfs image ... OK
+## Booting image at 41400000 ...
+   Image Name:   arm-linux
+   Image Type:   ARM Linux Kernel Image (gzip compressed)
+   Data Size:    1613402 Bytes =  1.5 MB
+   Load Address: 40008000
+   Entry Point:  40008000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+ 
+Starting kernel ...
+ 
+init started: BusyBox v1.8.2 (2010-08-26 18:02:31 CST)
+starting pid 202, tty '': '/etc/init.d/rcS'
+ 
+========================
+Wed Feb  1 18:36:45 UTC 2012
+========================
+waitforaim: AIM started sec:1328121410 usec:202923 ended: sec:1328121410 usec::234565 elapsed:0.031642
+ 
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+waitforsm: aim_config_get_int failed, SM did not start
+killall: udhcpc: no process killed
+ 
+udhcpc (v1.8.2) started
+DHCPv4 script:
+  Command     : deconfig
+  Interface   : eth0
+  IP Address  :
+  Subnet Mask :
+  Routers     :
+  DNS Servers :
+  Hostname    :
+  Domain      :
+Reading committed configuration...
+configuring eth0 Link-Local address
+deconfig command
+Configuration command line: iBMC inet dhcp_renew add 0.0.0.0 netmask 0.0.0.0 route 0.0.0.0 dns1 0.0.0.0 dns2 0.0.0.0
+add command
+Store IPv4 '0.0.0.0'
+eth0 MAC address is : D4:85:64:C9:E8:46
+== Requested Network Changes =============
+IPv4 DNS Server 1 -> '0.0.0.0'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '0.0.0.0'
+IPv4 Net Mask -------> '0.0.0.0'
+IPv4 Gateway --------> '0.0.0.0'
+==========================================
+EventCallback() - nEventType:3 szEvent: event_netchange_cfg_request nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_commit nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_start nSize:0
+avctifconfig - Now waiting for EVENT_NETCHANGE_ACTIVE.
+EventCallback() - nEventType:3 szEvent: event_netchange_active nSize:792
+avctifconfig - Our changes should now be active.
+aim_function_execute() returned success...
+Waited for 0 seconds.
+Discover_retries : 20
+Sending discover...
+eth0 Link-Local address is : FE80::d685:64FF:FEC9:E846
+Sending select for 192.168.1.11...
+ip: RTNETLINK answers: File exists
+Lease of 192.168.1.11 obtained, lease time 86400
+DHCPv4 script:
+  Command     : bound
+  Interface   : eth0
+  IP Address  : 192.168.1.11
+  Subnet Mask : 255.255.255.0
+  Routers     : 192.168.1.1
+  DNS Servers : 192.168.1.1
+  Hostname    : microserver-ipmi
+  Domain      : localdomain
+Reading committed configuration...
+Updating domain...
+ip: an inet address is expected rather than "N/A/N/A"
+Configuration command line: iBMC inet dhcp_renew add 192.168.1.11 netmask 255.255.255.0 route 192.168.1.1 domain localdomain dns1 192.168.1.1 dns2 0.0.0.0
+add command
+Store IPv4 '192.168.1.11'
+== Requested Network Changes =============
+Domain ------------> 'localdomain'
+IPv4 DNS Server 1 -> '192.168.1.1'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '192.168.1.11'
+IPv4 Net Mask -------> '255.255.255.0'
+IPv4 Gateway --------> '192.168.1.1'
+==========================================
+aim_function_execute() returned success...
+Waited for 0 seconds.
+ip: RTNETLINK answers: No such process
+ip: RTNETLINK answers: No route to host
+Log levels currently enabled:
+  AVCT_LOG_NONE
+  AVCT_LOG_ERROR
+  AVCT_LOG_WARNING
+SetVideoConfig[1941] Set Mode=1 Y=4 UV=23
+avct_init_video_capture[492] Video In Source Buf 2         = 0x46000000[5120K]
+avct_init_video_capture[495] Video IN Source Buf 1         = 0x45900000[5120K]
+avct_init_video_capture[504] Video Compress Buf Address[0] = 0x45880000[512K]
+avct_init_video_capture[511] Video BCD Buf Address         = 0x4587D800[10K]
+avct_init_video_capture[514] Video CRC Buf Address         = 0x45869800[80K]
+GetMemoryBandwidth[1831] GetMemoryBandwidth
+GetMemoryBandwidth[1832] Numerator        = 15
+GetMemoryBandwidth[1833] Denumerator      = 0
+GetMemoryBandwidth[1834] OutputDivider    = 1
+GetMemoryBandwidth[1835] Buswidth         = 16
+GetMemoryBandwidth[1836] Memory Clock     = 204
+GetMemoryBandwidth[1837] Memory Bandwidth = 530
+avct_init_video_capture[550] compression buffer address 45880000 mmap to address 4035E000 size 524288
+avct_init_video_capture[567] Using Driver's buffer for frame send
+create /mnt/scratchpad
+VDiskHandler() - Invalid device file for interface exiting...
+VDiskHandler() - Invalid device file for interface exiting...
+AddStore() - Unknown Image Store 2.
+AddStore() - Unknown Image Store 3.
+AvmpSend - Client 0, Already closed
+Starting debug for AIMLIB-ipmiSystemCallAgent
+aim_init() - szComponentName:ipmiSystemCallAgent ulProgNum:536872532
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536872532 in thread ID: 16386 process ID: 674
+aim_function_register() - result:0
+Success to open IO table bin file IO_fl.bin
+Success to open IO sensor table bin file IS_fl.bin
+Success to open IO index table bin file IX_fl.bin
+HWInitFunctionTable:MakeMemFile() FunctionTable.bin
+Success to open device ID bin file ID_devid.bin
+Success to open HWINFO FI_fwid.bin
+Success to open default value table oemdef.bin
+Starting debug for AIMLIB-IPMI
+aim_init() - szComponentName:IPMI ulProgNum:536870944
+ 
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536870944 in thread ID: 49156 process ID: 684
+Starting Network Interface Plugging Daemon: eth0update failed: REFUSED
+ bond0.
+update failed: REFUSED
+ 
+ 
+ 
+DcmiInit entry!!
+Get G_u32DcmiInitMode(2)
+ 
+ 
+ 
+Register DCMI_COMMAND_HOOK_TYPE function at 6a590
+Register DCMI Command-Hook function
+Success to open Virtual PS NVRAM_PrivateStorage00.dat
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:49 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:51 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+aim_function_register() - result:0
+Success to open Virtual SDR NVRAM_SDR00.dat
+creating /tmp/clp
+Register all IPMI Gateway APIs successfully.
+ 
+aim_config_get() - returned data length zero, parameter sol_int_idle_timer not found
+!!!IPv6BufferInit(139)...
+aim_event_callback_register() - nNumEvents:4
+aim_event_callback_register() - result:1
+aim_event_callback_register() - saving pEventCallback:68be0
+IPMI initial costs 6 seconds, 999998409 nanoseconds
+Start Nexus ...........................
+ 
+Memory Service: No memory limitation
+[NVStorage] Success to init NVStorage subsystem
+Abstraction Socket Layer Init Success...
+Thread GPTaskHi has been created successfully.
+Thread GPTaskLo has been created successfully.
+Creating config file.
+ 
+Thread EventingService has been created successfully.
+wsman port (5985,5986s)
+Thread HTTPService has been created successfully.
+cimom port (5988,5989s)
+Thread HTTPService2 has been created successfully.
+Thread ProviderInitSDR has been created successfully.
+Thread CMCITask has been created successfully.
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+Thread SHTTPDService has been created successfully.
+Thread SHTTPDService2 has been created successfully.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+CIM_Sensor_InstAgent_ReadInitSDR
+ 
+Starting GUIProcessMonitor
+ 
+starting pid 846, tty '': '/sbin/getty'sole.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+ 
+microserver-ipmi login: root
+Password: service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+ 
+[AST2050 ~]$ ki; Communication with fe80::c2c1:c0ff:fe1a:fb66#53 failed: timed out
+could not talk to specified name server
+llall osinet
+[AST2050 ~]$ dmesg
+<5>Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+<4>CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+<4>Machine: ASPEED-AST2050
+<4>Memory policy: ECC disabled, Data cache writeback
+<7>On node 0 totalpages: 27648
+<7>  DMA zone: 216 pages used for memmap
+<7>  DMA zone: 0 pages reserved
+<7>  DMA zone: 27432 pages, LIFO batch:7
+<7>  Normal zone: 0 pages used for memmap
+<7>  Movable zone: 0 pages used for memmap
+<4>CPU0: D VIVT write-back cache
+<4>CPU0: I cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>CPU0: D cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>Built 1 zonelists in Zone order.  Total pages: 27432
+<5>Kernel command line: root=/dev/ram0 rw initrd=0x42600000,0xD00000 ramdisk_size=13312 rootfstype=squashfs mem=108M console=ttyS0 quiet
+<4>PID hash table entries: 512 (order: 9, 2048 bytes)
+<4>Console: colour dummy device 80x30
+<6>console [ttyS0] enabled
+<6>Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+<6>Memory: 108MB = 108MB total
+<5>Memory: 92672KB available (3024K code, 324K data, 116K init)
+<7>Calibrating delay loop... 98.71 BogoMIPS (lpj=493568)
+<6>Security Framework v1.0.0 initialized
+<6>Capability LSM initialized
+<4>Mount-cache hash table entries: 512
+<6>CPU: Testing write buffer coherency: ok
+<7>DEV: registering device: ID = 'platform'
+<7>bus type 'platform' registered
+<7>Registering sysdev class '<NULL>'
+<6>NET: Registered protocol family 16
+<7>bus type 'amba' registered
+<7>device class 'tty': registering
+<7>device class 'vtconsole': registering
+<7>DEV: registering device: ID = 'vtcon0'
+<7>Registering sys device 'cpu0'
+<7>device class 'misc': registering
+<7>device class 'input': registering
+<7>device class 'net': registering
+<7>device class 'mem': registering
+<7>DEV: registering device: ID = 'mem'
+<7>DEV: registering device: ID = 'kmem'
+<7>DEV: registering device: ID = 'null'
+<7>DEV: registering device: ID = 'zero'
+<7>DEV: registering device: ID = 'full'
+<7>DEV: registering device: ID = 'random'
+<7>DEV: registering device: ID = 'urandom'
+<7>DEV: registering device: ID = 'kmsg'
+<6>NET: Registered protocol family 2
+<6>IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+<6>TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+<6>TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+<6>TCP: Hash tables configured (established 4096 bind 4096)
+<6>TCP reno registered
+<6>checking if image is initramfs...it isn't (bad gzip magic numbers); looks like an initrd
+<6>Freeing initrd memory: 13312K
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timer0'
+<4>NetWinder Floating Point Emulator V0.97 (double precision)
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timekeeping0'
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'clocksource0'
+<6>audit: initializing netlink socket (disabled)
+<5>audit(0.590:1): initialized
+<6>squashfs: version 3.4 (2008/08/26) Phillip Lougher
+<6>JFFS2 version 2.2. (NAND) (SUMMARY)  Â© 2001-2006 Red Hat, Inc.
+<4>fuse init (API version 7.8)
+<7>DEV: registering device: ID = 'fuse'
+<6>io scheduler noop registered
+<6>io scheduler deadline registered (default)
+<7>DEV: registering device: ID = 'tty'
+<7>DEV: registering device: ID = 'console'
+<7>DEV: registering device: ID = 'ptmx'
+<7>DEV: registering device: ID = 'tty0'
+<7>device class 'vc': registering
+<7>DEV: registering device: ID = 'vcs'
+<7>DEV: registering device: ID = 'vcsa'
+<7>DEV: registering device: ID = 'tty1'
+<7>DEV: registering device: ID = 'tty2'
+<7>DEV: registering device: ID = 'tty3'
+<7>DEV: registering device: ID = 'tty4'
+<7>DEV: registering device: ID = 'tty5'
+<7>DEV: registering device: ID = 'tty6'
+<7>DEV: registering device: ID = 'tty7'
+<7>DEV: registering device: ID = 'tty8'
+<7>DEV: registering device: ID = 'tty9'
+<7>DEV: registering device: ID = 'tty10'
+<7>DEV: registering device: ID = 'tty11'
+<7>DEV: registering device: ID = 'tty12'
+<7>DEV: registering device: ID = 'tty13'
+<7>DEV: registering device: ID = 'tty14'
+<7>DEV: registering device: ID = 'tty15'
+<7>DEV: registering device: ID = 'tty16'
+<7>DEV: registering device: ID = 'tty17'
+<7>DEV: registering device: ID = 'tty18'
+<7>DEV: registering device: ID = 'tty19'
+<7>DEV: registering device: ID = 'tty20'
+<7>DEV: registering device: ID = 'tty21'
+<7>DEV: registering device: ID = 'tty22'
+<7>DEV: registering device: ID = 'tty23'
+<7>DEV: registering device: ID = 'tty24'
+<7>DEV: registering device: ID = 'tty25'
+<7>DEV: registering device: ID = 'tty26'
+<7>DEV: registering device: ID = 'tty27'
+<7>DEV: registering device: ID = 'tty28'
+<7>DEV: registering device: ID = 'tty29'
+<7>DEV: registering device: ID = 'tty30'
+<7>DEV: registering device: ID = 'tty31'
+<7>DEV: registering device: ID = 'tty32'
+<7>DEV: registering device: ID = 'tty33'
+<7>DEV: registering device: ID = 'tty34'
+<7>DEV: registering device: ID = 'tty35'
+<7>DEV: registering device: ID = 'tty36'
+<7>DEV: registering device: ID = 'tty37'
+<7>DEV: registering device: ID = 'tty38'
+<7>DEV: registering device: ID = 'tty39'
+<7>DEV: registering device: ID = 'tty40'
+<7>DEV: registering device: ID = 'tty41'
+<7>DEV: registering device: ID = 'tty42'
+<7>DEV: registering device: ID = 'tty43'
+<7>DEV: registering device: ID = 'tty44'
+<7>DEV: registering device: ID = 'tty45'
+<7>DEV: registering device: ID = 'tty46'
+<7>DEV: registering device: ID = 'tty47'
+<7>DEV: registering device: ID = 'tty48'
+<7>DEV: registering device: ID = 'tty49'
+<7>DEV: registering device: ID = 'tty50'
+<7>DEV: registering device: ID = 'tty51'
+<7>DEV: registering device: ID = 'tty52'
+<7>DEV: registering device: ID = 'tty53'
+<7>DEV: registering device: ID = 'tty54'
+<7>DEV: registering device: ID = 'tty55'
+<7>DEV: registering device: ID = 'tty56'
+<7>DEV: registering device: ID = 'tty57'
+<7>DEV: registering device: ID = 'tty58'
+<7>DEV: registering device: ID = 'tty59'
+<7>DEV: registering device: ID = 'tty60'
+<7>DEV: registering device: ID = 'tty61'
+<7>DEV: registering device: ID = 'tty62'
+<7>DEV: registering device: ID = 'tty63'
+<7>DEV: registering device: ID = 'ptyp0'
+<7>DEV: registering device: ID = 'ptyp1'
+<7>DEV: registering device: ID = 'ptyp2'
+<7>DEV: registering device: ID = 'ptyp3'
+<7>DEV: registering device: ID = 'ptyp4'
+<7>DEV: registering device: ID = 'ptyp5'
+<7>DEV: registering device: ID = 'ptyp6'
+<7>DEV: registering device: ID = 'ptyp7'
+<7>DEV: registering device: ID = 'ttyp0'
+<7>DEV: registering device: ID = 'ttyp1'
+<7>DEV: registering device: ID = 'ttyp2'
+<7>DEV: registering device: ID = 'ttyp3'
+<7>DEV: registering device: ID = 'ttyp4'
+<7>DEV: registering device: ID = 'ttyp5'
+<7>DEV: registering device: ID = 'ttyp6'
+<7>DEV: registering device: ID = 'ttyp7'
+<7>device class 'raw': registering
+<7>DEV: registering device: ID = 'rawctl'
+<7>DEV: registering device: ID = 'nvram'
+<6>Non-volatile memory driver v1.2
+<6>ttyS0 at MMIO 0x1e784000 (irq = 10) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS0'
+<6>ttyS1 at MMIO 0x1e783000 (irq = 9) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS1'
+<4>RAMDISK driver initialized: 1 RAM disks of 13312K size 1024 blocksize
+<6>loop: module loaded
+<6>nbd: registered device at major 43
+<7>DEV: registering device: ID = 'lo'
+<4>eth0: at 0xfe660000 IRQ:2 noWait:0, MAC d4:85:64:c9:e8:46
+<7>DEV: registering device: ID = 'eth0'
+<7>device class 'mtd': registering
+<4>SPI Flash ID : 0x3182001
+<4>Detect SPI Flash ID : S25FL128P
+<5>Creating 4 MTD partitions on "s25fl128p":
+<5>0x00000000-0x00040000 : "AST2050 SPI FLASH (U-BOOT)"
+<7>CLASS: registering class device: ID = 'mtd0'
+<7>class_uevent - name = mtd0
+<7>class_device_create_uevent called for mtd0
+<7>CLASS: registering class device: ID = 'mtd0ro'
+<7>class_uevent - name = mtd0ro
+<7>class_device_create_uevent called for mtd0ro
+<5>0x00040000-0x00100000 : "AST2050 SPI FLASH (Private Storage)"
+<7>CLASS: registering class device: ID = 'mtd1'
+<7>class_uevent - name = mtd1
+<7>class_device_create_uevent called for mtd1
+<7>CLASS: registering class device: ID = 'mtd1ro'
+<7>class_uevent - name = mtd1ro
+<7>class_device_create_uevent called for mtd1ro
+<5>0x00100000-0x00300000 : "AST2050 SPI FLASH (Kernel)"
+<7>CLASS: registering class device: ID = 'mtd2'
+<7>class_uevent - name = mtd2
+<7>class_device_create_uevent called for mtd2
+<7>CLASS: registering class device: ID = 'mtd2ro'
+<7>class_uevent - name = mtd2ro
+<7>class_device_create_uevent called for mtd2ro
+<5>0x00300000-0x01000000 : "AST2050 SPI FLASH (Rootfs)"
+<7>CLASS: registering class device: ID = 'mtd3'
+<7>class_uevent - name = mtd3
+<7>class_device_create_uevent called for mtd3
+<7>CLASS: registering class device: ID = 'mtd3ro'
+<7>class_uevent - name = mtd3ro
+<7>class_device_create_uevent called for mtd3ro
+<4>Insert SPI NOR Flash module success!
+<4>success to register interrupt for INT_WDT (27)
+<7>DEV: registering device: ID = 'aess_wdtdrv'
+<6>ASPEED WDT is installed.(irq = 27, heartbeat = 10 secs, nowayout = 1)
+<4>mknod /dev/aess_wdtdrv c 10 130
+<7>bus type 'mmc' registered
+<7>device class 'mmc_host': registering
+<7>bus mmc: add driver mmcblk
+<6>IPv4 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'tunl0'
+<6>ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>TCP cubic registered
+<6>NET: Registered protocol family 1
+<6>NET: Registered protocol family 10
+<6>ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>IPv6 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'sit0'
+<6>NET: Registered protocol family 17
+<6>NET: Registered protocol family 15
+<6>802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+<6>All bugs added by David S. Miller <davem@redhat.com>
+<7>driver_probe_done: probe_count = 0
+<5>RAMDISK: squashfs filesystem found at block 0
+<5>RAMDISK: Loading 9920KiB [1 disk] into ram disk... done.
+<4>VFS: Mounted root (squashfs filesystem) readonly.
+<6>Freeing init memory: 116K
+<5>JFFS2 notice: (246) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+<7>KN:init_aess_mem_module
+<4>mknod /dev/aess_eventhandlerdrv c 254 0
+<4>mknod /dev/vkcs c 253 0
+<4>aess_kcsdrv: no version for "aess_generate_driver_event" found: kernel tainted.
+<4>mknod /dev/aess_kcsdrv c 252 0
+<4>mknod /dev/aess_memdrv c 251 0
+<4>mknod /dev/aess_biospostdrv c 250 0
+<4>mknod /dev/aess_gpiodrv c 249 0
+<4>mknod /dev/aess_dynairqdrv c 248 0
+<4>mknod /dev/aess_i2cdrv c 247 0
+<4>Init_aess_pecisensor_module Sucess!
+<4>mknod /dev/aess_pecisensordrv c 246 0
+<4>mknod /dev/aess_cryptodrv c 245 0
+<4>mknod /dev/aess_fansensordrv c 244 0
+<4>mknod /dev/aess_pwmdrv c 243 0
+<6>Ethernet Channel Bonding Driver: v3.1.3 (June 13, 2007)
+<6>bonding: MII link monitoring set to 200 ms
+<7>DEV: registering device: ID = 'bond0'
+<7>DEV: registering device: ID = 'vir0'
+<7>DEV: registering device: ID = 'vir1'
+<1>ncsi_notifier: eth0 device registered
+<1>ncsi_notifier new open: lo opened !
+<6>ADDRCONF(NETDEV_UP): bond0: link is not ready
+<1>ncsi_notifier: bond0 opened !
+<1>ncsi_notifier: eth0 device opened
+<1>ncsi_notifier: eth0 device downed
+<6>ADDRCONF(NETDEV_UP): eth0: link is not ready
+<1>ncsi_notifier: eth0 device opened
+<7>Registering platform device 'g_ast2050_udc.0'. Parent at platform
+<7>DEV: registering device: ID = 'g_ast2050_udc.0'
+<7>bus platform: add device g_ast2050_udc.0
+<7>bus platform: add driver g_ast2050_udc
+<7>platform: Matched Device g_ast2050_udc.0 with Driver g_ast2050_udc
+<7>platform: Probing driver g_ast2050_udc with device g_ast2050_udc.0
+<7>bound device 'g_ast2050_udc.0' to driver 'g_ast2050_udc'
+<7>platform: Bound Device g_ast2050_udc.0 to Driver g_ast2050_udc
+<1>composite_init() Desc: USB Composite Device
+<1>composite_init() Name: g_composite
+<1>composite_init() Version: 20090730
+<7>DEV: registering device: ID = 'gadget'
+<4>usb_udc: g_ast2050_udc: registered gadget driver 'g_composite'
+<1>hid_init: Desc: Keyboard/Mouse Function
+<1>hid_init: Name: g_kbdmouse
+<1>hid_init: Version: 20090618
+<7>usb_composite_register()
+<1>hid_bind: Using Major Number 242
+<1>hid_bind: using g_ast2050_udc, Keyboard ep1in-int Mouse ep2in-int
+<1>hid_bind: Mouse REL ep3in-int
+<1>usb_composite_register(): bind to driver 'g_kbdmouse' SUCCESSFUL
+<6>ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+<1>msd_init: Desc: Mass Storage Function
+<1>msd_init: Name: g_mass_storage
+<1>msd_init: Version: 20091022
+<7>usb_composite_register()
+<1>msd_bind: Using Major Number 241
+<1>usb_composite_register(): bind to driver 'g_mass_storage' SUCCESSFUL
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[0]
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[1]
+<1>g_kbdmouse: high speed config #1 for Keyboard/Mouse
+<1>standard_setup_req(): MSD_STATE_CONFIG_CHANGE config=1
+<1>g_mass_storage: high speed config #1 for interface[0]
+<1>g_mass_storage: high speed config #1 for interface[1]
+<1>g_composite g_ast2050_udc: high speed config #1
+<4>ioaccess_ioctl Max Res = 1280 X 1024 Ref Mem (5242880) @ 46000000 Cap Mem (6291456) @ 45800000
+<4>ioaccess_ioctl Data_Linear_address = 45880000[524288] mapped to C7100000
+<4>ioaccess_ioctl VGA_Linear_address = 07800000 mapped to C8000000
+<4>drv-SetupDirectMode[2827] Disabled direct mode VIDEOENGINE_VIDEO_CONTROL=001E0000
+<4>process `nsupdate' is using obsolete setsockopt SO_BSDCOMPAT
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>eth0: no IPv6 routers present
+[AST2050 ~]$ lsmod
+Module                  Size  Used by    Tainted: GF
+aess_video            173968  0
+g_mass_storage         33840  2
+g_kbdmouse             17356  4
+g_composite            16916  2 g_mass_storage,g_kbdmouse
+g_ast2050_udc          20912  1 g_composite
+ncsi_protocol          11212  0
+bonding                89484  0
+aess_pwmdrv            13996  0
+aess_fansensordrv      16972  0
+aess_cryptodrv         28396  0
+aess_pecisensordrv     20584  0
+aess_i2cdrv            50328  2
+aess_dynairqdrv        22524  0
+aess_gpiodrv           24720  1 aess_dynairqdrv
+aess_biospostdrv       19756  0
+aess_memdrv            19744  0
+aess_kcsdrv            37988  0
+vkcs                    5588  0
+aess_eventhandlerdrv    13708  3 aess_i2cdrv,aess_dynairqdrv,aess_kcsdrv
+[AST2050 ~]$ cat /proc/cpuinfo
+Processor       : ARM926EJ-S rev 5 (v5l)
+BogoMIPS        : 98.71
+Features        : swp half thumb fastmult edsp java
+CPU implementer : 0x41
+CPU architecture: 5TEJ
+CPU variant     : 0x0
+CPU part        : 0x926
+CPU revision    : 5
+Cache type      : write-back
+Cache clean     : cp15 c7 ops
+Cache lockdown  : format C
+Cache format    : Harvard
+I size          : 16384
+I assoc         : 4
+I line length   : 32
+I sets          : 128
+D size          : 16384
+D assoc         : 4
+D line length   : 32
+D sets          : 128
+ 
+Hardware        : ASPEED-AST2050
+Revision        : 0000
+Serial          : 0000000000000000
+[AST2050 ~]$ cat /proc/version
+Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+[AST2050 ~]$ uname -a
+Linux microserver-ipmi 2.6.23.1-ASPEED-v.0.11 #26 PREEMPT Thu Aug 26 17:58:31 CST 2010 armv5tejl unknownU-Boot 1.2.0 (Jul  2 2010 - 17:02:47) Avocent (0.1.8) EVB
+ 
+Board: AST2050
+DRAM:  128 MB
+Detect S25FL128P Flash
+Flash: 16 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   FXN !check
+eth#0, ncsi#1
+Hit any key to stop autoboot:  0
+Copying kernel image ... KERNEL copy to ram OK
+Copying rootfs image ... OK
+## Booting image at 41400000 ...
+   Image Name:   arm-linux
+   Image Type:   ARM Linux Kernel Image (gzip compressed)
+   Data Size:    1613402 Bytes =  1.5 MB
+   Load Address: 40008000
+   Entry Point:  40008000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+ 
+Starting kernel ...
+ 
+init started: BusyBox v1.8.2 (2010-08-26 18:02:31 CST)
+starting pid 202, tty '': '/etc/init.d/rcS'
+ 
+========================
+Wed Feb  1 18:36:45 UTC 2012
+========================
+waitforaim: AIM started sec:1328121410 usec:202923 ended: sec:1328121410 usec::234565 elapsed:0.031642
+ 
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+ifconfig: SIOCGIFFLAGS: No such device
+waitforsm: aim_config_get_int failed, SM did not start
+killall: udhcpc: no process killed
+ 
+udhcpc (v1.8.2) started
+DHCPv4 script:
+  Command     : deconfig
+  Interface   : eth0
+  IP Address  :
+  Subnet Mask :
+  Routers     :
+  DNS Servers :
+  Hostname    :
+  Domain      :
+Reading committed configuration...
+configuring eth0 Link-Local address
+deconfig command
+Configuration command line: iBMC inet dhcp_renew add 0.0.0.0 netmask 0.0.0.0 route 0.0.0.0 dns1 0.0.0.0 dns2 0.0.0.0
+add command
+Store IPv4 '0.0.0.0'
+eth0 MAC address is : D4:85:64:C9:E8:46
+== Requested Network Changes =============
+IPv4 DNS Server 1 -> '0.0.0.0'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '0.0.0.0'
+IPv4 Net Mask -------> '0.0.0.0'
+IPv4 Gateway --------> '0.0.0.0'
+==========================================
+EventCallback() - nEventType:3 szEvent: event_netchange_cfg_request nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_commit nSize:792
+EventCallback() - nEventType:3 szEvent: event_netchange_start nSize:0
+avctifconfig - Now waiting for EVENT_NETCHANGE_ACTIVE.
+EventCallback() - nEventType:3 szEvent: event_netchange_active nSize:792
+avctifconfig - Our changes should now be active.
+aim_function_execute() returned success...
+Waited for 0 seconds.
+Discover_retries : 20
+Sending discover...
+eth0 Link-Local address is : FE80::d685:64FF:FEC9:E846
+Sending select for 192.168.1.11...
+ip: RTNETLINK answers: File exists
+Lease of 192.168.1.11 obtained, lease time 86400
+DHCPv4 script:
+  Command     : bound
+  Interface   : eth0
+  IP Address  : 192.168.1.11
+  Subnet Mask : 255.255.255.0
+  Routers     : 192.168.1.1
+  DNS Servers : 192.168.1.1
+  Hostname    : microserver-ipmi
+  Domain      : localdomain
+Reading committed configuration...
+Updating domain...
+ip: an inet address is expected rather than "N/A/N/A"
+Configuration command line: iBMC inet dhcp_renew add 192.168.1.11 netmask 255.255.255.0 route 192.168.1.1 domain localdomain dns1 192.168.1.1 dns2 0.0.0.0
+add command
+Store IPv4 '192.168.1.11'
+== Requested Network Changes =============
+Domain ------------> 'localdomain'
+IPv4 DNS Server 1 -> '192.168.1.1'
+IPv4 DNS Server 2 -> '0.0.0.0'
+-- Interface #0 --------------------
+Name ----------------> 'eth0'
+DHCPv4 Enabled ------> LAN_TRUE
+IPv4 Address --------> '192.168.1.11'
+IPv4 Net Mask -------> '255.255.255.0'
+IPv4 Gateway --------> '192.168.1.1'
+==========================================
+aim_function_execute() returned success...
+Waited for 0 seconds.
+ip: RTNETLINK answers: No such process
+ip: RTNETLINK answers: No route to host
+Log levels currently enabled:
+  AVCT_LOG_NONE
+  AVCT_LOG_ERROR
+  AVCT_LOG_WARNING
+SetVideoConfig[1941] Set Mode=1 Y=4 UV=23
+avct_init_video_capture[492] Video In Source Buf 2         = 0x46000000[5120K]
+avct_init_video_capture[495] Video IN Source Buf 1         = 0x45900000[5120K]
+avct_init_video_capture[504] Video Compress Buf Address[0] = 0x45880000[512K]
+avct_init_video_capture[511] Video BCD Buf Address         = 0x4587D800[10K]
+avct_init_video_capture[514] Video CRC Buf Address         = 0x45869800[80K]
+GetMemoryBandwidth[1831] GetMemoryBandwidth
+GetMemoryBandwidth[1832] Numerator        = 15
+GetMemoryBandwidth[1833] Denumerator      = 0
+GetMemoryBandwidth[1834] OutputDivider    = 1
+GetMemoryBandwidth[1835] Buswidth         = 16
+GetMemoryBandwidth[1836] Memory Clock     = 204
+GetMemoryBandwidth[1837] Memory Bandwidth = 530
+avct_init_video_capture[550] compression buffer address 45880000 mmap to address 4035E000 size 524288
+avct_init_video_capture[567] Using Driver's buffer for frame send
+create /mnt/scratchpad
+VDiskHandler() - Invalid device file for interface exiting...
+VDiskHandler() - Invalid device file for interface exiting...
+AddStore() - Unknown Image Store 2.
+AddStore() - Unknown Image Store 3.
+AvmpSend - Client 0, Already closed
+Starting debug for AIMLIB-ipmiSystemCallAgent
+aim_init() - szComponentName:ipmiSystemCallAgent ulProgNum:536872532
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536872532 in thread ID: 16386 process ID: 674
+aim_function_register() - result:0
+Success to open IO table bin file IO_fl.bin
+Success to open IO sensor table bin file IS_fl.bin
+Success to open IO index table bin file IX_fl.bin
+HWInitFunctionTable:MakeMemFile() FunctionTable.bin
+Success to open device ID bin file ID_devid.bin
+Success to open HWINFO FI_fwid.bin
+Success to open default value table oemdef.bin
+Starting debug for AIMLIB-IPMI
+aim_init() - szComponentName:IPMI ulProgNum:536870944
+ 
+rpcCallbackService() - calling svc_run to wait for rpc callbacks for socket:/tmp/rpSocketCB536870944 in thread ID: 49156 process ID: 684
+Starting Network Interface Plugging Daemon: eth0update failed: REFUSED
+ bond0.
+update failed: REFUSED
+ 
+ 
+ 
+DcmiInit entry!!
+Get G_u32DcmiInitMode(2)
+ 
+ 
+ 
+Register DCMI_COMMAND_HOOK_TYPE function at 6a590
+Register DCMI Command-Hook function
+Success to open Virtual PS NVRAM_PrivateStorage00.dat
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:49 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+rpc_aim_callback_function_1_svc() - szFunctionName:SystemCallImp nSize:51 nMaxSize: 4
+rpc_aim_callback_function_1_svc() - returned from pFunctionCallback result:0
+rpc_aim_callback_function_1_svc() - result == SUCCESS, callbackData size: 4
+aim_function_execute() - szFunctionName: SystemCallImp g_ulProgNum: 536870944 nReturn:0
+aim_function_register() - result:0
+Success to open Virtual SDR NVRAM_SDR00.dat
+creating /tmp/clp
+Register all IPMI Gateway APIs successfully.
+ 
+aim_config_get() - returned data length zero, parameter sol_int_idle_timer not found
+!!!IPv6BufferInit(139)...
+aim_event_callback_register() - nNumEvents:4
+aim_event_callback_register() - result:1
+aim_event_callback_register() - saving pEventCallback:68be0
+IPMI initial costs 6 seconds, 999998409 nanoseconds
+Start Nexus ...........................
+ 
+Memory Service: No memory limitation
+[NVStorage] Success to init NVStorage subsystem
+Abstraction Socket Layer Init Success...
+Thread GPTaskHi has been created successfully.
+Thread GPTaskLo has been created successfully.
+Creating config file.
+ 
+Thread EventingService has been created successfully.
+wsman port (5985,5986s)
+Thread HTTPService has been created successfully.
+cimom port (5988,5989s)
+Thread HTTPService2 has been created successfully.
+Thread ProviderInitSDR has been created successfully.
+Thread CMCITask has been created successfully.
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+Thread SHTTPDService has been created successfully.
+Thread SHTTPDService2 has been created successfully.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+CIM_Sensor_InstAgent_ReadInitSDR
+ 
+Starting GUIProcessMonitor
+ 
+starting pid 846, tty '': '/sbin/getty'sole.
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+ 
+microserver-ipmi login: root
+Password: service:wbem:http://192.168.1.11:5988
+service:wbem:https://192.168.1.11:5989
+aim_function_execute() - szFunctionName: netGetCurrentIfConfig g_ulProgNum: 536870944 nReturn:0
+ 
+[AST2050 ~]$ ki; Communication with fe80::c2c1:c0ff:fe1a:fb66#53 failed: timed out
+could not talk to specified name server
+llall osinet
+[AST2050 ~]$ dmesg
+<5>Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+<4>CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+<4>Machine: ASPEED-AST2050
+<4>Memory policy: ECC disabled, Data cache writeback
+<7>On node 0 totalpages: 27648
+<7>  DMA zone: 216 pages used for memmap
+<7>  DMA zone: 0 pages reserved
+<7>  DMA zone: 27432 pages, LIFO batch:7
+<7>  Normal zone: 0 pages used for memmap
+<7>  Movable zone: 0 pages used for memmap
+<4>CPU0: D VIVT write-back cache
+<4>CPU0: I cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>CPU0: D cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+<4>Built 1 zonelists in Zone order.  Total pages: 27432
+<5>Kernel command line: root=/dev/ram0 rw initrd=0x42600000,0xD00000 ramdisk_size=13312 rootfstype=squashfs mem=108M console=ttyS0 quiet
+<4>PID hash table entries: 512 (order: 9, 2048 bytes)
+<4>Console: colour dummy device 80x30
+<6>console [ttyS0] enabled
+<6>Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+<6>Memory: 108MB = 108MB total
+<5>Memory: 92672KB available (3024K code, 324K data, 116K init)
+<7>Calibrating delay loop... 98.71 BogoMIPS (lpj=493568)
+<6>Security Framework v1.0.0 initialized
+<6>Capability LSM initialized
+<4>Mount-cache hash table entries: 512
+<6>CPU: Testing write buffer coherency: ok
+<7>DEV: registering device: ID = 'platform'
+<7>bus type 'platform' registered
+<7>Registering sysdev class '<NULL>'
+<6>NET: Registered protocol family 16
+<7>bus type 'amba' registered
+<7>device class 'tty': registering
+<7>device class 'vtconsole': registering
+<7>DEV: registering device: ID = 'vtcon0'
+<7>Registering sys device 'cpu0'
+<7>device class 'misc': registering
+<7>device class 'input': registering
+<7>device class 'net': registering
+<7>device class 'mem': registering
+<7>DEV: registering device: ID = 'mem'
+<7>DEV: registering device: ID = 'kmem'
+<7>DEV: registering device: ID = 'null'
+<7>DEV: registering device: ID = 'zero'
+<7>DEV: registering device: ID = 'full'
+<7>DEV: registering device: ID = 'random'
+<7>DEV: registering device: ID = 'urandom'
+<7>DEV: registering device: ID = 'kmsg'
+<6>NET: Registered protocol family 2
+<6>IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+<6>TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+<6>TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+<6>TCP: Hash tables configured (established 4096 bind 4096)
+<6>TCP reno registered
+<6>checking if image is initramfs...it isn't (bad gzip magic numbers); looks like an initrd
+<6>Freeing initrd memory: 13312K
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timer0'
+<4>NetWinder Floating Point Emulator V0.97 (double precision)
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'timekeeping0'
+<7>Registering sysdev class '<NULL>'
+<7>Registering sys device 'clocksource0'
+<6>audit: initializing netlink socket (disabled)
+<5>audit(0.590:1): initialized
+<6>squashfs: version 3.4 (2008/08/26) Phillip Lougher
+<6>JFFS2 version 2.2. (NAND) (SUMMARY)  Â© 2001-2006 Red Hat, Inc.
+<4>fuse init (API version 7.8)
+<7>DEV: registering device: ID = 'fuse'
+<6>io scheduler noop registered
+<6>io scheduler deadline registered (default)
+<7>DEV: registering device: ID = 'tty'
+<7>DEV: registering device: ID = 'console'
+<7>DEV: registering device: ID = 'ptmx'
+<7>DEV: registering device: ID = 'tty0'
+<7>device class 'vc': registering
+<7>DEV: registering device: ID = 'vcs'
+<7>DEV: registering device: ID = 'vcsa'
+<7>DEV: registering device: ID = 'tty1'
+<7>DEV: registering device: ID = 'tty2'
+<7>DEV: registering device: ID = 'tty3'
+<7>DEV: registering device: ID = 'tty4'
+<7>DEV: registering device: ID = 'tty5'
+<7>DEV: registering device: ID = 'tty6'
+<7>DEV: registering device: ID = 'tty7'
+<7>DEV: registering device: ID = 'tty8'
+<7>DEV: registering device: ID = 'tty9'
+<7>DEV: registering device: ID = 'tty10'
+<7>DEV: registering device: ID = 'tty11'
+<7>DEV: registering device: ID = 'tty12'
+<7>DEV: registering device: ID = 'tty13'
+<7>DEV: registering device: ID = 'tty14'
+<7>DEV: registering device: ID = 'tty15'
+<7>DEV: registering device: ID = 'tty16'
+<7>DEV: registering device: ID = 'tty17'
+<7>DEV: registering device: ID = 'tty18'
+<7>DEV: registering device: ID = 'tty19'
+<7>DEV: registering device: ID = 'tty20'
+<7>DEV: registering device: ID = 'tty21'
+<7>DEV: registering device: ID = 'tty22'
+<7>DEV: registering device: ID = 'tty23'
+<7>DEV: registering device: ID = 'tty24'
+<7>DEV: registering device: ID = 'tty25'
+<7>DEV: registering device: ID = 'tty26'
+<7>DEV: registering device: ID = 'tty27'
+<7>DEV: registering device: ID = 'tty28'
+<7>DEV: registering device: ID = 'tty29'
+<7>DEV: registering device: ID = 'tty30'
+<7>DEV: registering device: ID = 'tty31'
+<7>DEV: registering device: ID = 'tty32'
+<7>DEV: registering device: ID = 'tty33'
+<7>DEV: registering device: ID = 'tty34'
+<7>DEV: registering device: ID = 'tty35'
+<7>DEV: registering device: ID = 'tty36'
+<7>DEV: registering device: ID = 'tty37'
+<7>DEV: registering device: ID = 'tty38'
+<7>DEV: registering device: ID = 'tty39'
+<7>DEV: registering device: ID = 'tty40'
+<7>DEV: registering device: ID = 'tty41'
+<7>DEV: registering device: ID = 'tty42'
+<7>DEV: registering device: ID = 'tty43'
+<7>DEV: registering device: ID = 'tty44'
+<7>DEV: registering device: ID = 'tty45'
+<7>DEV: registering device: ID = 'tty46'
+<7>DEV: registering device: ID = 'tty47'
+<7>DEV: registering device: ID = 'tty48'
+<7>DEV: registering device: ID = 'tty49'
+<7>DEV: registering device: ID = 'tty50'
+<7>DEV: registering device: ID = 'tty51'
+<7>DEV: registering device: ID = 'tty52'
+<7>DEV: registering device: ID = 'tty53'
+<7>DEV: registering device: ID = 'tty54'
+<7>DEV: registering device: ID = 'tty55'
+<7>DEV: registering device: ID = 'tty56'
+<7>DEV: registering device: ID = 'tty57'
+<7>DEV: registering device: ID = 'tty58'
+<7>DEV: registering device: ID = 'tty59'
+<7>DEV: registering device: ID = 'tty60'
+<7>DEV: registering device: ID = 'tty61'
+<7>DEV: registering device: ID = 'tty62'
+<7>DEV: registering device: ID = 'tty63'
+<7>DEV: registering device: ID = 'ptyp0'
+<7>DEV: registering device: ID = 'ptyp1'
+<7>DEV: registering device: ID = 'ptyp2'
+<7>DEV: registering device: ID = 'ptyp3'
+<7>DEV: registering device: ID = 'ptyp4'
+<7>DEV: registering device: ID = 'ptyp5'
+<7>DEV: registering device: ID = 'ptyp6'
+<7>DEV: registering device: ID = 'ptyp7'
+<7>DEV: registering device: ID = 'ttyp0'
+<7>DEV: registering device: ID = 'ttyp1'
+<7>DEV: registering device: ID = 'ttyp2'
+<7>DEV: registering device: ID = 'ttyp3'
+<7>DEV: registering device: ID = 'ttyp4'
+<7>DEV: registering device: ID = 'ttyp5'
+<7>DEV: registering device: ID = 'ttyp6'
+<7>DEV: registering device: ID = 'ttyp7'
+<7>device class 'raw': registering
+<7>DEV: registering device: ID = 'rawctl'
+<7>DEV: registering device: ID = 'nvram'
+<6>Non-volatile memory driver v1.2
+<6>ttyS0 at MMIO 0x1e784000 (irq = 10) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS0'
+<6>ttyS1 at MMIO 0x1e783000 (irq = 9) is a ASPEED UART
+<7>DEV: registering device: ID = 'ttyS1'
+<4>RAMDISK driver initialized: 1 RAM disks of 13312K size 1024 blocksize
+<6>loop: module loaded
+<6>nbd: registered device at major 43
+<7>DEV: registering device: ID = 'lo'
+<4>eth0: at 0xfe660000 IRQ:2 noWait:0, MAC d4:85:64:c9:e8:46
+<7>DEV: registering device: ID = 'eth0'
+<7>device class 'mtd': registering
+<4>SPI Flash ID : 0x3182001
+<4>Detect SPI Flash ID : S25FL128P
+<5>Creating 4 MTD partitions on "s25fl128p":
+<5>0x00000000-0x00040000 : "AST2050 SPI FLASH (U-BOOT)"
+<7>CLASS: registering class device: ID = 'mtd0'
+<7>class_uevent - name = mtd0
+<7>class_device_create_uevent called for mtd0
+<7>CLASS: registering class device: ID = 'mtd0ro'
+<7>class_uevent - name = mtd0ro
+<7>class_device_create_uevent called for mtd0ro
+<5>0x00040000-0x00100000 : "AST2050 SPI FLASH (Private Storage)"
+<7>CLASS: registering class device: ID = 'mtd1'
+<7>class_uevent - name = mtd1
+<7>class_device_create_uevent called for mtd1
+<7>CLASS: registering class device: ID = 'mtd1ro'
+<7>class_uevent - name = mtd1ro
+<7>class_device_create_uevent called for mtd1ro
+<5>0x00100000-0x00300000 : "AST2050 SPI FLASH (Kernel)"
+<7>CLASS: registering class device: ID = 'mtd2'
+<7>class_uevent - name = mtd2
+<7>class_device_create_uevent called for mtd2
+<7>CLASS: registering class device: ID = 'mtd2ro'
+<7>class_uevent - name = mtd2ro
+<7>class_device_create_uevent called for mtd2ro
+<5>0x00300000-0x01000000 : "AST2050 SPI FLASH (Rootfs)"
+<7>CLASS: registering class device: ID = 'mtd3'
+<7>class_uevent - name = mtd3
+<7>class_device_create_uevent called for mtd3
+<7>CLASS: registering class device: ID = 'mtd3ro'
+<7>class_uevent - name = mtd3ro
+<7>class_device_create_uevent called for mtd3ro
+<4>Insert SPI NOR Flash module success!
+<4>success to register interrupt for INT_WDT (27)
+<7>DEV: registering device: ID = 'aess_wdtdrv'
+<6>ASPEED WDT is installed.(irq = 27, heartbeat = 10 secs, nowayout = 1)
+<4>mknod /dev/aess_wdtdrv c 10 130
+<7>bus type 'mmc' registered
+<7>device class 'mmc_host': registering
+<7>bus mmc: add driver mmcblk
+<6>IPv4 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'tunl0'
+<6>ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>TCP cubic registered
+<6>NET: Registered protocol family 1
+<6>NET: Registered protocol family 10
+<6>ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>IPv6 over IPv4 tunneling driver
+<7>DEV: registering device: ID = 'sit0'
+<6>NET: Registered protocol family 17
+<6>NET: Registered protocol family 15
+<6>802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+<6>All bugs added by David S. Miller <davem@redhat.com>
+<7>driver_probe_done: probe_count = 0
+<5>RAMDISK: squashfs filesystem found at block 0
+<5>RAMDISK: Loading 9920KiB [1 disk] into ram disk... done.
+<4>VFS: Mounted root (squashfs filesystem) readonly.
+<6>Freeing init memory: 116K
+<5>JFFS2 notice: (246) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+<7>KN:init_aess_mem_module
+<4>mknod /dev/aess_eventhandlerdrv c 254 0
+<4>mknod /dev/vkcs c 253 0
+<4>aess_kcsdrv: no version for "aess_generate_driver_event" found: kernel tainted.
+<4>mknod /dev/aess_kcsdrv c 252 0
+<4>mknod /dev/aess_memdrv c 251 0
+<4>mknod /dev/aess_biospostdrv c 250 0
+<4>mknod /dev/aess_gpiodrv c 249 0
+<4>mknod /dev/aess_dynairqdrv c 248 0
+<4>mknod /dev/aess_i2cdrv c 247 0
+<4>Init_aess_pecisensor_module Sucess!
+<4>mknod /dev/aess_pecisensordrv c 246 0
+<4>mknod /dev/aess_cryptodrv c 245 0
+<4>mknod /dev/aess_fansensordrv c 244 0
+<4>mknod /dev/aess_pwmdrv c 243 0
+<6>Ethernet Channel Bonding Driver: v3.1.3 (June 13, 2007)
+<6>bonding: MII link monitoring set to 200 ms
+<7>DEV: registering device: ID = 'bond0'
+<7>DEV: registering device: ID = 'vir0'
+<7>DEV: registering device: ID = 'vir1'
+<1>ncsi_notifier: eth0 device registered
+<1>ncsi_notifier new open: lo opened !
+<6>ADDRCONF(NETDEV_UP): bond0: link is not ready
+<1>ncsi_notifier: bond0 opened !
+<1>ncsi_notifier: eth0 device opened
+<1>ncsi_notifier: eth0 device downed
+<6>ADDRCONF(NETDEV_UP): eth0: link is not ready
+<1>ncsi_notifier: eth0 device opened
+<7>Registering platform device 'g_ast2050_udc.0'. Parent at platform
+<7>DEV: registering device: ID = 'g_ast2050_udc.0'
+<7>bus platform: add device g_ast2050_udc.0
+<7>bus platform: add driver g_ast2050_udc
+<7>platform: Matched Device g_ast2050_udc.0 with Driver g_ast2050_udc
+<7>platform: Probing driver g_ast2050_udc with device g_ast2050_udc.0
+<7>bound device 'g_ast2050_udc.0' to driver 'g_ast2050_udc'
+<7>platform: Bound Device g_ast2050_udc.0 to Driver g_ast2050_udc
+<1>composite_init() Desc: USB Composite Device
+<1>composite_init() Name: g_composite
+<1>composite_init() Version: 20090730
+<7>DEV: registering device: ID = 'gadget'
+<4>usb_udc: g_ast2050_udc: registered gadget driver 'g_composite'
+<1>hid_init: Desc: Keyboard/Mouse Function
+<1>hid_init: Name: g_kbdmouse
+<1>hid_init: Version: 20090618
+<7>usb_composite_register()
+<1>hid_bind: Using Major Number 242
+<1>hid_bind: using g_ast2050_udc, Keyboard ep1in-int Mouse ep2in-int
+<1>hid_bind: Mouse REL ep3in-int
+<1>usb_composite_register(): bind to driver 'g_kbdmouse' SUCCESSFUL
+<6>ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+<1>msd_init: Desc: Mass Storage Function
+<1>msd_init: Name: g_mass_storage
+<1>msd_init: Version: 20091022
+<7>usb_composite_register()
+<1>msd_bind: Using Major Number 241
+<1>usb_composite_register(): bind to driver 'g_mass_storage' SUCCESSFUL
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[0]
+<1>handle_exception: Handling MSD_STATE_DISCONNECT for interface[1]
+<1>g_kbdmouse: high speed config #1 for Keyboard/Mouse
+<1>standard_setup_req(): MSD_STATE_CONFIG_CHANGE config=1
+<1>g_mass_storage: high speed config #1 for interface[0]
+<1>g_mass_storage: high speed config #1 for interface[1]
+<1>g_composite g_ast2050_udc: high speed config #1
+<4>ioaccess_ioctl Max Res = 1280 X 1024 Ref Mem (5242880) @ 46000000 Cap Mem (6291456) @ 45800000
+<4>ioaccess_ioctl Data_Linear_address = 45880000[524288] mapped to C7100000
+<4>ioaccess_ioctl VGA_Linear_address = 07800000 mapped to C8000000
+<4>drv-SetupDirectMode[2827] Disabled direct mode VIDEOENGINE_VIDEO_CONTROL=001E0000
+<4>process `nsupdate' is using obsolete setsockopt SO_BSDCOMPAT
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>DEV: registering device: ID = 'vcs1'
+<7>DEV: registering device: ID = 'vcsa1'
+<7>DEV: Unregistering device. ID = 'vcs1'
+<7>device_create_release called for vcs1
+<7>DEV: Unregistering device. ID = 'vcsa1'
+<7>device_create_release called for vcsa1
+<7>eth0: no IPv6 routers present
+[AST2050 ~]$ lsmod
+Module                  Size  Used by    Tainted: GF
+aess_video            173968  0
+g_mass_storage         33840  2
+g_kbdmouse             17356  4
+g_composite            16916  2 g_mass_storage,g_kbdmouse
+g_ast2050_udc          20912  1 g_composite
+ncsi_protocol          11212  0
+bonding                89484  0
+aess_pwmdrv            13996  0
+aess_fansensordrv      16972  0
+aess_cryptodrv         28396  0
+aess_pecisensordrv     20584  0
+aess_i2cdrv            50328  2
+aess_dynairqdrv        22524  0
+aess_gpiodrv           24720  1 aess_dynairqdrv
+aess_biospostdrv       19756  0
+aess_memdrv            19744  0
+aess_kcsdrv            37988  0
+vkcs                    5588  0
+aess_eventhandlerdrv    13708  3 aess_i2cdrv,aess_dynairqdrv,aess_kcsdrv
+[AST2050 ~]$ cat /proc/cpuinfo
+Processor       : ARM926EJ-S rev 5 (v5l)
+BogoMIPS        : 98.71
+Features        : swp half thumb fastmult edsp java
+CPU implementer : 0x41
+CPU architecture: 5TEJ
+CPU variant     : 0x0
+CPU part        : 0x926
+CPU revision    : 5
+Cache type      : write-back
+Cache clean     : cp15 c7 ops
+Cache lockdown  : format C
+Cache format    : Harvard
+I size          : 16384
+I assoc         : 4
+I line length   : 32
+I sets          : 128
+D size          : 16384
+D assoc         : 4
+D line length   : 32
+D sets          : 128
+ 
+Hardware        : ASPEED-AST2050
+Revision        : 0000
+Serial          : 0000000000000000
+[AST2050 ~]$ cat /proc/version
+Linux version 2.6.23.1-ASPEED-v.0.11 (root@tw5560dt.nwing.foxconn.com) (gcc version 3.4.5) #26 PREEMPT Thu Aug 26 17:58:31 CST 2010
+[AST2050 ~]$ uname -a
+Linux microserver-ipmi 2.6.23.1-ASPEED-v.0.11 #26 PREEMPT Thu Aug 26 17:58:31 CST 2010 armv5tejl unknown
